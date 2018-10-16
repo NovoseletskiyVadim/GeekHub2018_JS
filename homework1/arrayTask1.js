@@ -82,6 +82,18 @@ console.log("splice заменил елементы массива на новы
 period.splice(0,3, 'сентябрь','октябрь','ноябрь');
 console.log(period);
 
+//add method "indexOf"
+console.log("Работа метода \"indexOf\"");
+var indexOfMyMonth=['июнь','июль','август'];
+console.log("Исходный массив:", indexOfMyMonth);
+for (let index = 0; index < indexOfMyMonth.length; index++) {
+    console.log("елемент с индексом ["+index+"]"+indexOfMyMonth[index]);   
+}
+console.log("находим индекс  елемента со значением\"август\" он равен:",indexOfMyMonth.indexOf("август"));
+
+
+
+
 
 
 
