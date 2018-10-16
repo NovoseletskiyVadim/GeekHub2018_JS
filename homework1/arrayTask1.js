@@ -92,6 +92,29 @@ for (let index = 0; index < indexOfMyMonth.length; index++) {
 console.log("находим индекс  елемента со значением\"август\" он равен:",indexOfMyMonth.indexOf("август"));
 
 
+//add method "filter"
+console.log("Работа метода \"filter\"");
+//create Array
+var filtermyMonth=[19,4,6,true,'сентябрь','июнь',false,'октябрь',3,'август',10,'ноябрь','июль'];
+console.log("Вывод исходного массива:")
+for(let i=0;i<filtermyMonth.length;i++){
+    console.log("индекс массива:"+i+" значение="+filtermyMonth[i]);
+}
+// assign the result of the function(new array) to a variable "mySummer"
+var mySummer=filtermyMonth.filter(
+    function(mySummer){
+        return mySummer==="июнь"||mySummer==="июль"||mySummer==="август";  
+    }
+);
+// function result 
+console.log("Результат работы иетода \"filter\"",mySummer);
+for(let i=0;i<mySummer.length;i++){
+    console.log("индекс массива:"+i+" значение="+mySummer[i]);
+};
+
+
+
+
 
 
 
