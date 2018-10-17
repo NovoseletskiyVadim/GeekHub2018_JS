@@ -43,7 +43,11 @@ console.log("работа метода(конкатенация двух мас�
 
 //add method "forEach"
 var myNumber=new Array(6,3,7,8,1,3,9,4,12,10,6,28,20,15)
-console.log("работа метода \"forEach\"",myNumber);
+// var myNumberForEach=myNumber.forEach();
+console.log("работа метода \"forEach\"", myNumber.forEach(
+    function(element){
+        console.log(element);
+    }));
 
 //add method "split"
 var str='Июнь,Июль,Август';
@@ -181,6 +185,36 @@ console.log("или выведем так)")
 for(let i=0;i<nameSummerAndDays.length;i++){
     console.log("[",i,"]"+"значение:",nameSummerAndDays[i]);
 }
+
+//Add method "find"
+/*
+    возвращает значение первого элемента в массиве, который соответствует условию в 
+    переданной функции, или undefined, если ни один элемент не удовлетворяет условию
+*/ 
+console.log("Начало работы метода \"find\"");
+var customers=[
+    ['Ivanov','Ivan','Ivanovich'],
+    ['Petrow','Ivan','Petrovich'],
+    ['Chapaj','Vasilij','Ivanovich']
+];
+
+console.log(customers.forEach(element=>{
+    console.log(element);
+}));
+function searchCustomer(element,index,arr){
+    return element==='Ivan';
+}
+
+var findMyCustomer=customers.find(searchCustomer)
+if(findMyCustomer){
+    console.log("есть такой человек");
+}
+else{
+
+    console.log("такого человека нету!!")
+}
+
+
 
 
 
