@@ -92,6 +92,8 @@ for (let index = 0; index < indexOfMyMonth.length; index++) {
 console.log("находим индекс  елемента со значением\"август\" он равен:",indexOfMyMonth.indexOf("август"));
 
 
+
+
 //add method "filter"
 console.log("Работа метода \"filter\"");
 //create Array
@@ -111,6 +113,82 @@ console.log("Результат работы иетода \"filter\"",mySummer);
 for(let i=0;i<mySummer.length;i++){
     console.log("индекс массива:"+i+" значение="+mySummer[i]);
 };
+
+
+//Add method "Map"
+/*
+    map очень похожа на filter. В аргумент она принимает callback функцию,
+    которая будет работать с каждым элементом в массиве. Но вот тут и 
+    начинается различие. filter ждёт, когда функция вернёт истину или ложь,
+    и уже если функция возвращает истину - добавит элемент в массив. map же
+    принимает все значения массива в новый массив. но мы можем производить над ними 
+    любые преобразования внутри нашей callback функции.
+
+*/ 
+console.log("Начало работы метода \"Map\"")
+var mySummerMonth=[
+    {
+        month:'июнь',
+        temperatureOfMonth:28,
+        days:30
+    },
+    {
+        month:'июль',
+        temperatureOfMonth:35,
+        days:31
+    },
+
+    {
+        month:'август',
+        temperatureOfMonth:24,
+        days:30
+    }
+];
+console.log("Исходный массив обьектов:")
+
+mySummerMonth.forEach(element => {
+      console.log(element);
+});
+
+/*используя функцию map, преобразует массив обьектов
+в новый массив состояший только из названий месяцев*/
+
+console.log("функция map,преобразует массив обьектов и  выведе новый массив из названий месяцев  ")
+
+var nameSummerMonth=mySummerMonth.map(
+    function(nameMonth){
+        return nameMonth.month;
+    }
+);
+//вывод массива на консоль
+nameSummerMonth.forEach(element=>{
+    console.log(element);
+});
+
+// или 
+console.log("или")
+var nameSummerAndDays=mySummerMonth.map(
+    function(allOjectParameters){
+        return allOjectParameters.month+", количество дней:"+allOjectParameters.days+
+        " средняя температура за месяц: +"+allOjectParameters.temperatureOfMonth
+    }
+);
+
+nameSummerAndDays.forEach(element=>{
+    console.log(element);
+});
+console.log("или выведем так)")
+for(let i=0;i<nameSummerAndDays.length;i++){
+    console.log("[",i,"]"+"значение:",nameSummerAndDays[i]);
+}
+
+
+
+
+
+
+
+
 
 
 
