@@ -205,7 +205,20 @@ function searchCustomer(element,index,arr){
     return element==='Ivan';
 }
 
-var findMyCustomer=customers.find(searchCustomer)
+var findMyCustomer;
+for(let i=0; i<customers.length;i++){
+
+    for(let j=0; j<customers[i].length;j++){
+        
+        console.log(customers[i].find(searchCustomer)) ;       
+         findMyCustomer=customers[i].find(searchCustomer);
+       
+
+    }
+
+}
+
+// var findMyCustomer=customers.find(searchCustomer)
 if(findMyCustomer){
     console.log("есть такой человек");
 }
