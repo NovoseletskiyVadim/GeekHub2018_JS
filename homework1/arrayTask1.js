@@ -201,24 +201,36 @@ var customers=[
 console.log(customers.forEach(element=>{
     console.log(element);
 }));
+
 function searchCustomer(element,index,arr){
     return element==='Ivan';
 }
+// variant 1
+// var findMyCustomer=customers.forEach(element=>{
+//      element.find(searchCustomer);
+// });
 
-var findMyCustomer;
-for(let i=0; i<customers.length;i++){
+// variant 2
+var findMyCustomer=customers.forEach(element=>{
+     element.forEach(elements=>{
+             elements.find(searchCustomer);
+    });
+});
 
-    for(let j=0; j<customers[i].length;j++){
+// variant 3
+
+// for(let i=0; i<customers.length;i++){
+//     findMyCustomer=customers[i].find(searchCustomer);
+
+//     for(let j=0; j<customers[i].length;j++){
         
-        console.log(customers[i].find(searchCustomer)) ;       
-         findMyCustomer=customers[i].find(searchCustomer);
-       
+//         console.log(customers[i].find(searchCustomer));       
+//         //  findMyCustomer=customers[i].find(searchCustomer);
+//     }
 
-    }
-
-}
-
+// }
 // var findMyCustomer=customers.find(searchCustomer)
+
 if(findMyCustomer){
     console.log("есть такой человек");
 }
@@ -226,6 +238,39 @@ else{
 
     console.log("такого человека нету!!")
 }
+
+
+console.log("Начало работы метода \"find\"");
+
+var customers=[
+
+  ['Ivanov','Ivan','Ivanovich'],
+
+  ['Petrow','Ivan','Petrovich'],
+
+  ['Chapaj','Vasilij','Ivanovich']
+
+];
+
+customers.forEach((element, parentArrayIndex)=>{
+
+ element.find(
+
+   function(elem, index){
+
+     if (elem === 'Ivan') {
+
+       console.log('Ivan is found on position', parentArrayIndex, index);
+
+       return elem === 'Ivan';
+
+     }
+
+   }
+
+ )
+
+});
 
 
 
