@@ -21,42 +21,66 @@ else{
     }
 }
 
-// implementation of methods
-
-// Add method "push"
-
-// associativeArrayMobileTel['key'].push('value');
-// var newValue={'myKey':'myValue'};
-// associativeArrayMobileTel.push("37637643","jdhfjdhfjdfh");
-
+// implementation of methods;
 console.warn("Добавдение метода аналог. push. Начало работы.");
 
-var associativeArrayMobileTel={
-    ['phone brand']:'nokia',
-    ['model']:3310,
-    ['color']:'black',
-    ['year of issue']:2010,
-    ['start price']:100,
+    var myObj={
+        // add create method;
+        myObjCreateProperties:function(numberOfKeys){
+            for(var i=1;i<=numberOfKeys;i++){
+                this[i]=undefined;
+            };
+            console.warn("Создан обьект на "+(i-1)+" свойства")
+            return this;
+        },
+        
+        // add display method;
+        myDisplay:function(){
+            console.warn("вывод обьекта:");
+            for(var myKey in this){
+                if(parseInt(myKey)){
+                console.log("Ключ= "+myKey+"; Значение= "+ this[myKey]);                    
+                }
+            };
+            return this;
+        },
 
-    myPush:function(myKey,myValue){
-        if(myKey==null||myKey==undefined){
-                console.error("Error:отсутствует ключ!!");
+        //add push method
+        myObjPush:function(newValue){
+            var newKey=undefined;
+            for(var key in this){
+                if(parseInt(key)){
+                     newKey=parseInt(key)+1; 
+                };
+            };
+            if(newKey && newValue){
+                console.warn("Добавлено "+newKey+" -е свойство ");
+                return this[newKey]=newValue;
+            }
+            else{console.error("MyError:Не добавлено значение ключа!!")};
+        },
+
+        // add pop method
+        myObjPop:function(){
+            var lastKey=undefined;
+            for(var key in this){
+                if(parseInt(key)){
+                    lastKey=parseInt(key); 
+                };
+            };
+            if(lastKey){
+                delete this[lastKey];
+                console.warn("Последнее свойство удалено!!")
+            }
+            return this;
         }
-        else if(myValue==null||myValue==undefined){
-            console.error("Error:отсутствует значение  ключа!!");            
-        } 
-        else{
-            return this[myKey]=myValue;  
-
-        }
-    }
-};
-associativeArrayMobileTel.myPush('la la la',12);
-for(var i in associativeArrayMobileTel){
-    console.log("Ключ= "+i+"; Значение= "+ associativeArrayMobileTel[i]);
-}
+    };
+    myObj.myObjCreateProperties(2);
+    myObj.myDisplay();
+    myObj.myObjPush(888);
+    myObj.myDisplay();
+    myObj.myObjPop();
+    myObj.myDisplay();
 
 
-
-
-
+   
