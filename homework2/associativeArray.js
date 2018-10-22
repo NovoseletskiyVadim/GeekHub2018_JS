@@ -40,10 +40,10 @@ var associativeArrayMobileTel={
 
     myPush:function(myKey,myValue){
         if(myKey==null||myKey==undefined){
-                console.error("Error:отсутствует ключа!!");
+                console.error("Error:отсутствует ключ!!");
         }
         else if(myValue==null||myValue==undefined){
-            console.error("Error:отсутствует значеник  ключа!!");            
+            console.error("Error:отсутствует значение  ключа!!");            
         } 
         else{
             return this[myKey]=myValue;  
