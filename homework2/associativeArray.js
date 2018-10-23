@@ -93,32 +93,56 @@ console.warn("Добавдение метода аналог. push. Начало
             return this;
         },
 
-        // add find method;
-        myObjFindSummer:function(){
+        // add filter method;
+        myObjFilterSummer:function(){
             console.log("Найдем и выведем все летние месяцы с помощью метода find : ");
-            var myFind="";
+            var myFilter="";
            
             for(var key in this){
                 if(parseInt(key)){
                     if(this[key]==='июнь'||this[key]==='июль'||this[key]==='август'){
-                        myFind+=this[key]+" ; ";
+                        myFilter+=this[key]+" ; ";
                     };
                 };
             };
-            if(myFind){
-                console.warn("Результат работы метода \"myFindSummer\" :"+ myFind);                
+            if(myFilter){
+                console.warn("Результат работы метода \"myFilterSummer\" :"+ myFilter);                
             }
             else{
                 console.error("MyERROR!!");
             };
             return this;
+        },
+        //add find method;
+        myObjFind:function(inValueFind){
+            var outValueFind=undefined;
+            for(key in this){
+                if(parseInt(key)){
+                    if(this[key]===inValueFind){
+                        outValueFind=this[key];
+                        break;
+                    };
+                };
+            };
+
+            if(outValueFind){
+                console.warn("Результат работы метода \"find\" : "+outValueFind)
+            }
+            else{
+                console.error("MyError!!")
+            };
+
+            return this;
         }
+
+
     };
     myObj.myObjCreateProperties(2);
     myObj.myDisplay();
     myObj.myObjPush('июнь');
     myObj.myObjPush('июль');
     myObj.myObjPush('август');
+    myObj.myObjPush('июнь');
     myObj.myObjPush('сентябрь');
     myObj.myObjPush('октябрь');
     myObj.myObjPush('ноябрь');
@@ -127,7 +151,8 @@ console.warn("Добавдение метода аналог. push. Начало
     myObj.myObjPop();
     myObj.myDisplay();
     myObj.myObjJoin('/');
-    myObj.myObjFindSummer();
+    myObj.myObjFilterSummer();
+    myObj.myObjFind('июнь');
 
 
 
