@@ -73,14 +73,37 @@ console.warn("Добавдение метода аналог. push. Начало
                 console.warn("Последнее свойство удалено!!")
             }
             return this;
+        },
+        // add join method;
+        myObjJoin:function(mySeparator){
+                var viewSeparator=mySeparator+"";
+                var myJoin=undefined;
+                console.log("Работа метода \"join\": ");
+            for(var key in this){
+                if(parseInt(key)){
+                    myJoin+=this[key]+viewSeparator;                      
+                }
+            }
+            if(myJoin){
+                console.log("Результат работы метода \"join\" строка с разделителем: "+ myJoin);                
+            }
+            else{
+                console.error("MyERROR!!");
+            }
+            return this;
         }
     };
     myObj.myObjCreateProperties(2);
     myObj.myDisplay();
-    myObj.myObjPush(888);
+    myObj.myObjPush('июнь');
+    myObj.myObjPush('июль');
+    myObj.myObjPush('август');
+    myObj.myObjPush('сентябрь');
     myObj.myDisplay();
     myObj.myObjPop();
     myObj.myDisplay();
+    myObj.myObjJoin('/');
+
 
 
    
