@@ -77,19 +77,41 @@ console.warn("Добавдение метода аналог. push. Начало
         // add join method;
         myObjJoin:function(mySeparator){
                 var viewSeparator=mySeparator+"";
-                var myJoin=undefined;
+                var myJoin="";
                 console.log("Работа метода \"join\": ");
             for(var key in this){
                 if(parseInt(key)){
                     myJoin+=this[key]+viewSeparator;                      
                 }
-            }
+            };
             if(myJoin){
                 console.log("Результат работы метода \"join\" строка с разделителем: "+ myJoin);                
             }
             else{
                 console.error("MyERROR!!");
+            };
+            return this;
+        },
+
+        // add find method;
+        myObjFindSummer:function(){
+            console.log("Найдем и выведем все летние месяцы с помощью метода find : ");
+            var myFind="";
+           
+            for(var key in this){
+                if(parseInt(key)){
+                    if(this[key]==='июнь'||this[key]==='июль'||this[key]==='август'){
+                        myFind+=this[key]+" ; ";
+                    }
+                     
+                }
+            };
+            if(myFind){
+                console.warn("Результат работы метода \"myFindSummer\" :"+ myFind);                
             }
+            else{
+                console.error("MyERROR!!");
+            };
             return this;
         }
     };
@@ -99,10 +121,14 @@ console.warn("Добавдение метода аналог. push. Начало
     myObj.myObjPush('июль');
     myObj.myObjPush('август');
     myObj.myObjPush('сентябрь');
+    myObj.myObjPush('октябрь');
+    myObj.myObjPush('ноябрь');
+    myObj.myObjPush('декабрь');
     myObj.myDisplay();
     myObj.myObjPop();
     myObj.myDisplay();
     myObj.myObjJoin('/');
+    myObj.myObjFindSummer();
 
 
 
