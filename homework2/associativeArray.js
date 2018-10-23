@@ -197,10 +197,11 @@ console.warn("Добавдение методов.  Начало работы.")
 
     };
 
-    myObj.myObjCreateProperties(2);
-    myObj.myDisplay();
+    
+    myObj.myObjCreateProperties(2);//Создание обьекта на 2 свойства
+    myObj.myDisplay(); // вывод результата
 
-    myObj.myObjPush('июнь');
+    myObj.myObjPush('июнь');//работа метода push
     myObj.myObjPush('июль');
     myObj.myObjPush('август');
     myObj.myObjPush('июнь');
@@ -209,42 +210,54 @@ console.warn("Добавдение методов.  Начало работы.")
     myObj.myObjPush('ноябрь');
     myObj.myObjPush('декабрь');
 
-    myObj.myDisplay();
+    myObj.myDisplay();// вывод результата работы метода push
 
-    myObj.myObjPop();
+    myObj.myObjPop();// работа метода pop
 
-    myObj.myDisplay();
+    myObj.myDisplay();// вывод результата
 
-    myObj.myObjJoin('/');
+    myObj.myObjJoin('/');// работа метода join
 
-    myObj.myObjFilterSummer();
+    myObj.myObjFilterSummer();// работа метода filter
 
-    myObj.myObjFind('июнь');
+    myObj.myObjFind('июнь');// работа метода find
 
+
+    //  работа метода map
     var outPutNewObject=myObj.myObjMap();
+    // результат работы метода map
     outPutNewObject.getMyInfo();
 
+    // Пример использования метода сортировки
+
+        // создадим конструктор для нового обьекта
     function CreateNewObjForMethodSort(quantityProperties){
 
+        // функция которая возвращает рандомные значения
         function myRandomValue(min, max) {
             var rand = min - 0.5 + Math.random() * (max - min + 1)
             rand = Math.round(rand);
             return rand;
         };
 
+        // создание и инициализация свойств нового обьекта
         for(var i=1;i<=quantityProperties;i++){
             this[i]=myRandomValue(1,100);
         };
 
         console.warn("Создан обьект на "+(i-1)+" свойств, для метода Sort \n и проинициализирован случайными значениями");
         
+        // метод вывода ключей и значений обьекта
         this.displayInfo=function(){
+            console.warn("Вывод свойств обьекта и значений обьекта:");
             for(var key in this){
                 if(parseInt(key))console.log("ключ : ["+key+"] ; Значение : "+this[key]);
             };
         };
 
+        // метод пузырьковой сортировки  по возрастанию
         this.myBubbleSort=function(){
+            console.warn(" После сортировки пузырьком:");
             for (var key in this){
                 if(parseInt(key)){
                     for(var a=1; a<quantityProperties;a++){
@@ -254,20 +267,18 @@ console.warn("Добавдение методов.  Начало работы.")
                                 var mySortValue=this[b];
                                 this[b]=this[b+1];
                                 this[b+1]=mySortValue;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
 
-
-    }
-
-    var ObjForMethodSort=new CreateNewObjForMethodSort(100);
-    ObjForMethodSort.displayInfo();
-    ObjForMethodSort.myBubbleSort();
-    ObjForMethodSort.displayInfo();
+    var ObjForMethodSort=new CreateNewObjForMethodSort(100);//создание обьекта на 100 свойств
+    ObjForMethodSort.displayInfo();//вывод информации о ключах и свойствах обьекта 
+    ObjForMethodSort.myBubbleSort();//приминение пузырьковой сортировки 
+    ObjForMethodSort.displayInfo();//вывод обновленной информации о ключах и отсортирован.свойствах
 
 
 
