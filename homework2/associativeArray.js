@@ -113,6 +113,7 @@ console.warn("Добавдение метода аналог. push. Начало
             };
             return this;
         },
+
         //add find method;
         myObjFind:function(inValueFind){
             var outValueFind=undefined;
@@ -133,12 +134,67 @@ console.warn("Добавдение метода аналог. push. Начало
             };
 
             return this;
+        },
+
+        myObjMap:function(){
+            console.warn("Старт работы метода \"myObjMap\"");
+             var myArray=[];//временный массив 
+             var countMyArray=0;//размер временного массива
+
+             //запись значений во временный массив myArray
+             for(var key in this){
+                if(parseInt(key)){
+                    if(this[key]==='июнь'||this[key]==='июль'||this[key]==='август'){
+                        myArray.push(this[key]);
+                    };
+                    
+                };
+             };
+
+             countMyArray=myArray.length;   
+                  
+            /*создадим конструктор для нового обьекта, который для своих свойств
+            выберет только летние месяцы из временного масива так сказать родительского  обьекта*/ 
+
+            function returnNewObj(countMyArray, myArray){
+
+                var inMyArray=myArray;
+                console.log("вывод  массива выбранных значений для нового обьекта");
+                console.log(inMyArray.forEach(element => {
+                    console.log(element);
+                }));
+
+                for(var i=1;i<=countMyArray;i++){
+                    this[i]=inMyArray.shift();
+                };
+                console.warn("Создан новый обьект на "+(i-1)+" свойства");
+                
+                //метод вывода содержимого свойств этого обьекта
+                this.getMyInfo=function(){
+                    console.warn("Вывод свойств нового обьекта после метода map");
+                    for(var key in this){
+                        
+                        if(parseInt(key)){
+                            console.log("ключ: [ "+key+"] Свойство : "+ this[key]);
+                        };
+                    };
+                };
+            };
+            var myResult=undefined;
+            // результат работы метода, возврашает новый обьект
+            myResult=new returnNewObj(countMyArray,myArray);
+            if(myResult) return myResult
+            else console.error("myERROR: новый обьект не создан!!!");  
         }
 
 
+
+
     };
+
     myObj.myObjCreateProperties(2);
     myObj.myDisplay();
+
     myObj.myObjPush('июнь');
     myObj.myObjPush('июль');
     myObj.myObjPush('август');
@@ -147,12 +203,24 @@ console.warn("Добавдение метода аналог. push. Начало
     myObj.myObjPush('октябрь');
     myObj.myObjPush('ноябрь');
     myObj.myObjPush('декабрь');
+
     myObj.myDisplay();
+
     myObj.myObjPop();
+
     myObj.myDisplay();
+
     myObj.myObjJoin('/');
+
     myObj.myObjFilterSummer();
+
     myObj.myObjFind('июнь');
+
+    var outPutNewObject=myObj.myObjMap();
+    outPutNewObject.getMyInfo();
+
+
+
 
 
 
