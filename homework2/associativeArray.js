@@ -102,9 +102,8 @@ console.warn("Добавдение метода аналог. push. Начало
                 if(parseInt(key)){
                     if(this[key]==='июнь'||this[key]==='июль'||this[key]==='август'){
                         myFind+=this[key]+" ; ";
-                    }
-                     
-                }
+                    };
+                };
             };
             if(myFind){
                 console.warn("Результат работы метода \"myFindSummer\" :"+ myFind);                
