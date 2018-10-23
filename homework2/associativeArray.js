@@ -22,7 +22,7 @@ else{
 }
 
 // implementation of methods;
-console.warn("Добавдение метода аналог. push. Начало работы.");
+console.warn("Добавдение методов.  Начало работы.");
 
     var myObj={
         // add create method;
@@ -147,12 +147,12 @@ console.warn("Добавдение метода аналог. push. Начало
                     if(this[key]==='июнь'||this[key]==='июль'||this[key]==='август'){
                         myArray.push(this[key]);
                     };
-                    
+ 
                 };
              };
 
              countMyArray=myArray.length;   
-                  
+
             /*создадим конструктор для нового обьекта, который для своих свойств
             выберет только летние месяцы из временного масива так сказать родительского  обьекта*/ 
 
@@ -185,6 +185,11 @@ console.warn("Добавдение метода аналог. push. Начало
             myResult=new returnNewObj(countMyArray,myArray);
             if(myResult) return myResult
             else console.error("myERROR: новый обьект не создан!!!");  
+        },
+
+        //add sort method
+        myObjSort:function(){
+
         }
 
 
@@ -218,6 +223,53 @@ console.warn("Добавдение метода аналог. push. Начало
 
     var outPutNewObject=myObj.myObjMap();
     outPutNewObject.getMyInfo();
+
+    function CreateNewObjForMethodSort(quantityProperties){
+
+        function myRandomValue(min, max) {
+            var rand = min - 0.5 + Math.random() * (max - min + 1)
+            rand = Math.round(rand);
+            return rand;
+        };
+
+        for(var i=1;i<=quantityProperties;i++){
+            this[i]=myRandomValue(1,100);
+        };
+
+        console.warn("Создан обьект на "+(i-1)+" свойств, для метода Sort \n и проинициализирован случайными значениями");
+        
+        this.displayInfo=function(){
+            for(var key in this){
+                if(parseInt(key))console.log("ключ : ["+key+"] ; Значение : "+this[key]);
+            };
+        };
+
+        this.myBubbleSort=function(){
+            for (var key in this){
+                if(parseInt(key)){
+                    for(var a=1; a<quantityProperties;a++){
+
+                        for(var b=0; b<=quantityProperties-1;b++){
+                            if (this[b]>this[b+1]){
+                                var mySortValue=this[b];
+                                this[b]=this[b+1];
+                                this[b+1]=mySortValue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    var ObjForMethodSort=new CreateNewObjForMethodSort(100);
+    ObjForMethodSort.displayInfo();
+    ObjForMethodSort.myBubbleSort();
+    ObjForMethodSort.displayInfo();
+
+
 
 
 
