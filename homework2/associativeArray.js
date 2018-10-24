@@ -6,7 +6,8 @@ var associativeArrayMobileTel={
     ['model']:3310,
     ['color']:'black',
     ['year of issue']:2010,
-    ['start price']:100
+    ['start price']:100,
+
 };
 console.log('Создание ассоциативного массива и вывод его  значений '+
 associativeArrayMobileTel.toString());
@@ -25,6 +26,9 @@ else{
 console.warn("Добавдение методов.  Начало работы.");
 
     var myObj={
+
+
+
         // add create method;
         myObjCreateProperties:function(numberOfKeys){
             for(var i=1;i<=numberOfKeys;i++){
@@ -33,6 +37,9 @@ console.warn("Добавдение методов.  Начало работы.")
             console.warn("Создан обьект на "+(i-1)+" свойства")
             return this;
         },
+
+
+
         
         // add display method;
         myDisplay:function(){
@@ -44,6 +51,11 @@ console.warn("Добавдение методов.  Начало работы.")
             };
             return this;
         },
+
+
+
+
+
 
         //add push method
         myObjPush:function(newValue){
@@ -60,6 +72,11 @@ console.warn("Добавдение методов.  Начало работы.")
             else{console.error("MyError:Не добавлено значение ключа!!")};
         },
 
+
+
+
+
+
         // add pop method
         myObjPop:function(){
             var lastKey=undefined;
@@ -74,6 +91,11 @@ console.warn("Добавдение методов.  Начало работы.")
             }
             return this;
         },
+
+
+
+
+
         // add join method;
         myObjJoin:function(mySeparator){
                 var viewSeparator=mySeparator+"";
@@ -92,6 +114,9 @@ console.warn("Добавдение методов.  Начало работы.")
             };
             return this;
         },
+
+
+
 
         // add filter method;
         myObjFilterSummer:function(){
@@ -114,6 +139,9 @@ console.warn("Добавдение методов.  Начало работы.")
             return this;
         },
 
+
+
+
         //add find method;
         myObjFind:function(inValueFind){
             var outValueFind=undefined;
@@ -135,6 +163,9 @@ console.warn("Добавдение методов.  Начало работы.")
 
             return this;
         },
+
+
+
 
         myObjMap:function(){
             console.warn("Старт работы метода \"myObjMap\"");
@@ -186,15 +217,6 @@ console.warn("Добавдение методов.  Начало работы.")
             if(myResult) return myResult
             else console.error("myERROR: новый обьект не создан!!!");  
         },
-
-        //add sort method
-        myObjSort:function(){
-
-        }
-
-
-
-
     };
 
     
@@ -223,12 +245,16 @@ console.warn("Добавдение методов.  Начало работы.")
     myObj.myObjFind('июнь');// работа метода find
 
 
+
     //  работа метода map
     var outPutNewObject=myObj.myObjMap();
     // результат работы метода map
     outPutNewObject.getMyInfo();
 
-    // Пример использования метода сортировки
+
+
+
+    // Пример использования метода сортировки Sort
 
         // создадим конструктор для нового обьекта
     function CreateNewObjForMethodSort(quantityProperties){
@@ -253,6 +279,7 @@ console.warn("Добавдение методов.  Начало работы.")
             for(var key in this){
                 if(parseInt(key))console.log("ключ : ["+key+"] ; Значение : "+this[key]);
             };
+            console.log("\n\n\n\n");
         };
 
         // метод пузырьковой сортировки  по возрастанию
@@ -279,6 +306,93 @@ console.warn("Добавдение методов.  Начало работы.")
     ObjForMethodSort.displayInfo();//вывод информации о ключах и свойствах обьекта 
     ObjForMethodSort.myBubbleSort();//приминение пузырьковой сортировки 
     ObjForMethodSort.displayInfo();//вывод обновленной информации о ключах и отсортирован.свойствах
+
+    
+    
+    
+
+    // пример с toString();
+
+    function monthNow(myMonth, myYear){
+        this.myMonth=myMonth;
+        this.myYear=myYear;
+    };
+    // создадим обьект 
+    var myTime=new monthNow('october',2018);
+    // стандартный метод toString()  выведет
+    console.warn("стандартный метод toString()  выведет:", myTime.toString());
+    // переопределим стандартный  метод toString() для всех обьектов monthNow
+    console.log("переопределим стандартный метод toString() для всех обьектов monthNow........")
+    monthNow.prototype.toString=function(){
+        return "На дворе стоял месяц :"+this.myMonth+" Заканчивался :"+this.myYear+" год";
+    }
+    console.warn("переопределенный  метод toString()  выведет:", myTime.toString()+"\n\n\n");
+
+   
+   
+   
+   
+   
+    // пример с геттерами и сеттерами 
+    console.warn("Работа с геттерами и сеттерами:")
+    function Cinema(name){
+        this.Name=name;
+        // set
+        this.setAge=function(inAge){
+            if(inAge<18){
+                // генерим новую ошибку
+                throw new Error("Фильм для возрастной категории больше 18 лет");
+            }
+            Age=inAge;
+        };
+        //get
+        this.Age=()=>{
+            return Age;
+        };
+    };
+
+    var Ukraine=new Cinema('Nikolai');
+    console.log("Имя посетителя :"+ Ukraine.Name);
+
+    // при попытке записать в свойство значение меньше 18 ошибка
+    // таким образом мы можем защить свойство обьекта от записи в него случайного значения. 
+    Ukraine.setAge(19);
+    console.log("Возраст посетителя :"+ Ukraine.Age());
+    console.log("\n\n\n\n\n")
+
+
+    
+
+    
+    // геттер length
+    console.warn(" Работа со свойством length:")
+    function CreateNewMyObj(quatityElements){
+        // проиницыализируем наш массив
+        for(var i=1; i<=quatityElements;i++){
+            this[i]=i+100;
+            console.log("Создали обьект на :"+i+" свойств");
+            
+        }
+        // свойство length
+        this.mylength=(()=>{
+            var y=0;
+            for(key in this){
+                if(parseInt(key)){
+                    ++y;
+                }
+            }
+            return mylength=y;
+        })();
+    };
+
+    var LengthObj=new CreateNewMyObj(10);
+    
+    console.warn("Свойство length вывело  значение : "+ LengthObj.mylength );
+
+
+
+
+
 
 
 
