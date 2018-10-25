@@ -120,7 +120,7 @@ console.warn("Добавдение методов.  Начало работы.")
 
         // add filter method;
         myObjFilterSummer:function(){
-            console.log("Найдем и выведем все летние месяцы с помощью метода find : ");
+            console.log("Найдем и выведем все летние месяцы с помощью метода filter : ");
             var myFilter="";
            
             for(var key in this){
@@ -139,7 +139,7 @@ console.warn("Добавдение методов.  Начало работы.")
             return this;
         },
 
-
+        
 
 
         //add find method;
