@@ -45,7 +45,13 @@ var longWordTests = [
 
 
 function longWord(word) {
-    //TODO
+    var myValue=word.length;
+    var myResult="";
+    if(myValue>10){
+       console.log(myValue);
+       var myStringNumber=myValue-2; 
+       return myResult=word.charAt(0)+myStringNumber+word.charAt(myValue-1);
+    }else return word;
 }
 
 
