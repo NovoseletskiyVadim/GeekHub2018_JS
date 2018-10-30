@@ -34,7 +34,9 @@ var factorialTests = [
 
 
 function factorial(n) {
-    //TODO
+    if(n<0) return NaN;
+    else if(n==0)return 1;
+    else return n*factorial(n-1);
 }
 
 
