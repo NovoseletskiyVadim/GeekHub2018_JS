@@ -55,7 +55,31 @@ var luckyNumberTests = [
 
 
 function luckyNumber(number) {
-    //TODO
+    var myCounter=0;
+    var myResult="";
+    var myFinishedResult;
+
+    for(var i=0; i<number.length;i++){
+        var myStartNumber=Number(number[i]);
+        
+        if(myStartNumber==4||myStartNumber==7){
+            myCounter+=1;
+            // console.log(myCounter);
+        }
+        else continue;
+    };
+    
+    myResult+=myCounter;
+    console.log(typeof(myResult))
+    for(var j=0;j<myResult.length;j++ ){
+        var myFinishNumber=Number(myResult[j])
+        if (myFinishNumber==4||myFinishNumber==7){
+            myFinishedResult= true;
+            continue;  
+        } 
+        else return myFinishedResult=false;
+    };
+    return myFinishedResult;
 }
 
 
