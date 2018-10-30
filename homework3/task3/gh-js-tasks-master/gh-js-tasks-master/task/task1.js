@@ -32,9 +32,22 @@ var fibonacciTests = [
 ];
 
 
+
 function fibonacci(n) {
-    //TODO
-}
+
+    var r=n+2;
+    var i,j,k,fib;
+    for(i=1, j=1, k=0, fib=0; i<=r; i++){
+        fib=(j+k); 
+        j=k; 
+        k=fib;  
+    }
+
+    return fib-1;
+     
+};
+
+
 
 
 tasks.push({
