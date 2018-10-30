@@ -38,7 +38,38 @@ var stringDotTests = [
 
 
 function stringDot(word) {
-    //TODO
+    var myInString;
+    myInString= word.toLowerCase();
+    var myResultString="";
+    for(var i=0; i<=myInString.length-1;i++){
+        var inCome=myInString[i];
+        switch(inCome){
+            case 'A':
+            case 'a':
+                break;
+            case 'O':
+            case 'o':
+                break;
+            case 'Y':
+            case 'y':
+                break;
+            case 'E':
+            case 'e':
+                break;
+            case 'U':
+            case 'u':
+                break;
+            case 'I':
+            case 'i':
+                break;
+
+            default:
+                myResultString+='.'+inCome; 
+                console.log(myResultString);
+                break;
+        }
+    }
+    return myResultString;
 }
 
 
