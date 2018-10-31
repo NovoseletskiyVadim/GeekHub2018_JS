@@ -68,7 +68,38 @@ var registrationTests = [
 
 
 function registration(names) {
-    //TODO
+
+  
+    var inBerd=[]=names;
+    var Base=[];
+    var result1;
+    var result2;
+    var answer=[];
+   
+    for(var i=0; i<inBerd.length;i++){
+        result1=inBerd.find((function(e){return e==inBerd[i]}));
+        result2=Base.find((function(e){return e==inBerd[i]}));
+         
+        if(result2!==result1){
+            Base.push(inBerd[i]);
+            answer.push("OK");
+        }
+        else{
+            for(var d=0;++d;){
+                if(undefined===Base.find((function(e){return e==inBerd[i]+d}))){
+                    Base.push(inBerd[i]+d);
+                    answer.push(inBerd[i]+d);
+                    break;
+                }
+               
+            }
+            
+        } 
+
+    }
+
+
+    return answer;
 }
 
 
