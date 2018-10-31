@@ -47,7 +47,23 @@ var doubleColaTests = [
 
 
 function doubleCola(n) {
-    //TODO
+    var DoubleCola=[];
+    DoubleCola[1]='Sheldon';
+    DoubleCola[2]='Leonard';
+    DoubleCola[3]='Penny';
+    DoubleCola[4]='Rajesh';
+    DoubleCola[5]='Howard';
+
+    var Cola=[];
+    
+
+    for(var i=1; i<=n;i++){
+        DoubleCola.push(DoubleCola[i]);
+        DoubleCola.push(DoubleCola[i]);
+
+        if(i==n) return Cola[i]=DoubleCola[i];
+        continue;
+    };
 }
 
 
