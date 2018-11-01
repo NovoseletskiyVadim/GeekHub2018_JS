@@ -44,7 +44,18 @@ var capsLockTests = [
 
 
 function capsLock(str) {
-    //TODO
+    var symbol=str.length;
+    var myStr="";
+    for(var i=0;i<=symbol;i++){
+        if(symbol[0].toUpperCase()!=symbol[0]){
+            myStr+=symbol[0];
+        }
+
+    }
+    // не доделал. В процессе...
+   
+    
+    return myStr;
 }
 
 
