@@ -31,7 +31,33 @@ var dragonCountTests = [
 
 
 function dragonCount(k, l, m, n, d) {
-    //TODO
+    var dragon_k=k;
+    var dragon_l=l;
+    var dragon_m=m;
+    var dragon_n=n;
+    var dragon_d=d;
+    var myCounter=0;
+ 
+    var DragonMassive=[];
+     for(var i=1;i<=d;i++){
+        DragonMassive[i]='Super';
+     };
+     for(var i=0;i<d;i+=k){
+         DragonMassive[i]='Bad';
+     };
+     for(var i=0;i<d;i+=l){
+         DragonMassive[i]='Bad';
+     };
+     for(var i=0;i<d;i+=m){
+         DragonMassive[i]='Bad';
+     }
+     for(var i=0;i<d;i+=n){
+         DragonMassive[i]='Bad';
+     }
+     for(var i=0;i<=d;i++){
+         if( DragonMassive[i]==='Bad') myCounter++;
+     }
+     return myCounter;
 }
 
 
