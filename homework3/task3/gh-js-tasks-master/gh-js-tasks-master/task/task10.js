@@ -44,18 +44,88 @@ var capsLockTests = [
 
 
 function capsLock(str) {
-    var symbol=str.length;
-    var myStr="";
-    for(var i=0;i<=symbol;i++){
-        if(symbol[0].toUpperCase()!=symbol[0]){
-            myStr+=symbol[0];
-        }
-
-    }
-    // не доделал. В процессе...
-   
+    var symbolCount=str.length;
+    var symbol=str;
+    var myResult="";
+    var myCounter;
+    var myValue;
+    var resultWorld;
     
-    return myStr;
+
+        // считывает по символьно всю строку 
+    for(var i=0;i<symbolCount;i++){
+        if(symbol[i]==" "){
+            myResult+=symbol[i];
+        }
+        else{ // cчитаем сколько букв в слове:
+            myCounter=0;//обнуляем счетчик
+            myValue=i;// запоминаем начальное  значение i
+            
+            for(;i<symbolCount;i++){
+                myCounter=myCounter+1;               
+                if(symbol[i+1]==" "||symbol[i+1]=="?"||symbol[i]=="!")break;
+            };
+
+            i=myValue;
+           
+            if( symbol[i].toUpperCase()==symbol[i]){
+                let world;
+                world=i+myCounter;
+                for(;i<world;i++){
+                    if(symbol[i]==symbol[i].toLowerCase()){
+                        resultWorld=true;
+                        break;                   
+                    }
+                    else{
+                        resultWorld=false;  
+                    };
+                };
+                if(resultWorld==true){
+                    i=myValue;
+                    for(;i<world;i++){
+                        myResult+=symbol[i];
+                    };
+                   
+                }else{
+                    i=myValue;
+                    for(;i<world;i++){
+                        myResult+=symbol[i].toLowerCase();
+                    };
+                };
+            }
+            else{
+                let world;
+                world=i+myCounter;
+                for(i+=1;i<world;i++){
+                    if(symbol[i]==symbol[i].toLowerCase()){
+                        resultWorld=true;
+                        break;                   
+                    }
+                    else{
+                        resultWorld=false;  
+                    };
+                };
+                if(resultWorld==true){
+                    i=myValue;
+                    myResult+=symbol[i];
+                    
+                    for(i+=1;i<world;i++){
+                        myResult+=symbol[i];
+                    };
+                    
+                }else{
+                    i=myValue;
+                    myResult+=symbol[i].toUpperCase();
+                    for(i+=1;i<world;i++){
+                        myResult+=symbol[i].toLowerCase();
+                    };
+                };
+            }
+           i-=1;
+        }        
+    }
+    
+    return myResult;
 }
 
 
