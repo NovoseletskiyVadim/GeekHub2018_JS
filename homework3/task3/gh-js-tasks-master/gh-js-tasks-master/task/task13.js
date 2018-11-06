@@ -30,7 +30,26 @@ var chatTest = [
 
 
 function chat(s) {
-    //TODO
+    var myStr=s;
+    var myWorld="hello";
+    var myResult="";
+    var finalResult;
+
+    for(var i=0;i<myWorld.length;i++){
+        var a=0;
+        for(;a<myStr.length;a++){
+            if(myWorld[i]==myStr[a]&&myWorld[i]!=myStr[a+1]){
+                myResult=myResult+myStr[a];            
+            }
+        }
+    }
+    if(myWorld===myResult){
+        return finalResult="true";
+    }
+    else{
+        return finalResult="false";
+    };
+   
 }
 
 
