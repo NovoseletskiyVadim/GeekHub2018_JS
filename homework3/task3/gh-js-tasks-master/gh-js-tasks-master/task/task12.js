@@ -53,7 +53,23 @@ var fastMathTest = [
 
 
 function fastMath(a, b) {
-    //TODO
+    var myStr1,myStr2;
+    myStr1=a;
+    myStr2=b;
+    var myValue1,myValue2;
+    var myResultStr="";
+
+    for(var i=0;i<myStr1.length;i++){
+        myValue1=parseInt(myStr1[i]);
+        myValue2=parseInt(myStr2[i]);
+        if(myValue1==1&&myValue2==1||myValue1==0&&myValue2==0){
+            myResultStr=myResultStr+"0";
+        }
+        else{
+            myResultStr=myResultStr+"1";
+        };
+    }
+    return myResultStr;
 }
 
 
