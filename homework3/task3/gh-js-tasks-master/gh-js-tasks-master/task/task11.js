@@ -31,7 +31,28 @@ var firstStepsTests = [
 
 
 function firstSteps(arr) {
-    //TODO
+    var Kefa=[]=arr;
+    var kefaCounter=0;
+    for(var i=0;i<Kefa.length;i++){
+
+        if(Kefa[i]<=Kefa[i+1]){
+            kefaCounter=0;
+
+            for(;i<Kefa.length;i++){
+                if(Kefa[i]<=Kefa[i+1]){
+                    kefaCounter=kefaCounter+1;
+                }else{
+                    kefaCounter=kefaCounter+1;
+                    break;
+                };
+            };
+        }
+        else if(Kefa[i]<=Kefa[i+1]){
+            kefaCounter=kefaCounter+1;
+            continue;
+        }
+    }
+    return kefaCounter;
 }
 
 
