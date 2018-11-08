@@ -1,3 +1,5 @@
+// еще попытаюсь до  выходных придумать как  for заменить на  foreach..
+fore
 console.log("Start");
 
 var myRocksWater=[2,1,5,0,3,4,7,2,3,1,0];
