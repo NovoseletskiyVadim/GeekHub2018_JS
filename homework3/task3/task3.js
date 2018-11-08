@@ -1,19 +1,41 @@
-// task1 
-var result1=function id(x) {
-    return x;
+function chat(s) {
+    var myStr=s;
+    var myWorld="hello";
+    var myResult="";
+    var finalResult;
+
+    for(var i=0;i<myWorld.length;i++){
+        // myValue1=myWorld[i];
+        // console.log("myValue1=",myValue1);
+
+        var a=0;
+        for(;a<myStr.length;a++){
+            if(myWorld[i]==myStr[a]&&myWorld[i]!=myStr[a+1]){
+                myResult=myResult+myStr[a];
+            
+                console.log("myResult1=",myResult);
+
+                
+               
+            }
+             
+
+        }
+    }
+    if(myWorld===myResult){
+        return finalResult=true;
+    }
+    else{
+        return finalResult=false;
+    }
+   
 }
 
-console.log("задание 1. Вернет :"+result1(true));
+var result;
+result=chat("ahhellllloou");
+console.log(result);
 
-// task2
-var result2=function reflexive(x) {
-    return x != x;
-}
-console.log("задание 2. Вернет :"+result2(NaN));
+ 
 
-// task3
-var result3=function infinity(x, y) {
-    return x === y && 1/x < 1/y 
-}
 
-console.log("задание 3. Вернет :"+result3());
+
