@@ -33,9 +33,29 @@ second();
 // создаем callback
 
 // variant 1
+function doHomeWork(subject,callback){
+    alert(`Starting my ${subject} homework.`);
+    callback();
+}
 
+doHomeWork('math', function(){
+    alert('Finished my homework');
+});
 
+// variant 2
+/*
+    callback выносм за пределы
+*/ 
+function doHomeWork1(subject,callback){
+    alert(`Starting my ${subject} homework.`);
+    callback();
+}
 
+function alertFinished(){
+    alert('Finished my homework');
+}
+
+doHomeWork1('math',alertFinished);
 
 
 
