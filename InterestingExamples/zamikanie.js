@@ -64,3 +64,62 @@ console.log(myCounter1());
 
 
 */ 
+
+// Чтобы добавить счётчику возможностей – перейдём с функции на полноценный объект:
+// variant 1
+function makeCounter(){
+    var currentCount=1;
+
+    // возвратим обьект вместо функции
+    return{
+        getNext:function(){
+            return currentCount++;
+        },
+
+        set:function(value){
+            currentCount=value;
+        },
+
+        reset:function(){
+            currentCount=1;
+        }
+    };
+}
+
+/*
+    Все они получают ссылку [[Scope]] на текущий (внешний) объект переменных.
+    Поэтому вызов любого из этих методов будет получать или модифицировать одно
+    и то же внешнее значение currentCount.
+     
+*/ 
+
+// variant 2 
+function makeCounter(){
+    var currentCount=1;
+
+    function counter(){
+        return currentCount++;
+    }
+    // доьавляем методы
+    counter.set=function(value){
+        currentCount=value;
+    }
+
+    counter.reset=function(){
+        currentCount=1;
+    }
+}
+
+var counter=makeCounter();
+console.log(counter());
+console.log(counter());
+counter.set(5);
+
+// variant 3
+
+function sum(a){
+    return function(b){
+        return a+b;
+    }
+}
+console.log(sum(5)(6));
