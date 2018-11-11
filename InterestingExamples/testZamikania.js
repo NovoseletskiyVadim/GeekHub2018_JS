@@ -1,4 +1,4 @@
-
+// http://dmitry.baranovskiy.com/post/91403200?fbclid=IwAR2w-KAY7Z5seMKX3rOnVfV5bCo18h_kVxcm-0EpbEVdd_5RxzC6NTMjm8M
 
 if (!("a" in window)) {
     var a = 1;
