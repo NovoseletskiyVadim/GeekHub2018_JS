@@ -122,19 +122,11 @@ var mainFunktion_2=function(){
                     var a=$(this).attr("button-id");
                         
                     ToDoListArray.splice(a,1);
-
-                    for(var i=0;i<ToDoListArray.length;i++){
-                        console.warn(ToDoListArray[i])
-                    }
-                     
+ 
                      $(this).remove();
                     
                     $("li[data-id="+a+"]").remove();
-                  
-
-                     listTaskArray();
                     
-                     
                 });
 
 
