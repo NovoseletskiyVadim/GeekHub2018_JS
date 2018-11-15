@@ -12,7 +12,7 @@ var mainFunktion_2=function(){
         var $nameInputTask, $inputAddTask, $buttonInputTask;
         
         $(".container .blockAddNewTask").empty();
-        
+
         $nameInputTask=$("<p>").text("Добавить новое задание");
         $inputAddTask=$("<input>");
         $buttonInputTask=$("<button>").text("+");
@@ -46,7 +46,7 @@ var mainFunktion_2=function(){
 
             textOfTask=$(".blockAddNewTask input").val();
 
-            ToDoListArray.push(currentDateTask+" задание: "+textOfTask);//запсь значения
+            ToDoListArray.push(currentDateTask+" задание: "+textOfTask+" ");//запсь значения
 
             $(".blockAddNewTask input").val("");//очищение поля 
 
@@ -57,7 +57,7 @@ var mainFunktion_2=function(){
         }
     }
 
-
+    
 
 
     // создаем 3 х слушателей  и на кажлого свое действие
@@ -88,17 +88,57 @@ var mainFunktion_2=function(){
 
             else if($(this).parent().is(":nth-child(2)")){
                 // console.log("щелчек на 2 й вкладке");
-                var $taskContent;
+                var $taskContent, $taskContentLi, $taskContentLiButton;
                 $taskContent=$("<ul>");// создаем тег <ul>
 
 
+                // ToDoListArray.forEach(element=>{
+                //     // добв. в ul , li со значениям из массива
+                //     $taskContent.append($("<li>").text(element));
+                // });
+                //функция вывода списка заданий 
+                var listTaskArray=function(){
+                    $(".contentTaskPage").empty();
+                    for(var i=0;i<ToDoListArray.length;i++){
+                        // console.log(ToDoListArray[i]);
 
-                ToDoListArray.forEach(element=>{
-                    // добв. в ul , li со значениям из массива
-                    $taskContent.append($("<li>").text(element));
-                })
-                // добавляем ul на страницу
-                $(".contentTaskPage").append($taskContent);
+                        if(ToDoListArray[i]!=undefined){
+
+                            $taskContentLiButton=$("<button>").attr('button-id', i).text("delete");
+                            $taskContentLi=$("<li>").attr('data-id', i);
+                            $taskContentLi.text(ToDoListArray[i]).append($taskContentLiButton);
+                            $taskContent.append($taskContentLi);
+
+                        }
+                    
+                    }
+                    // добавляем ul на страницу
+                     $(".contentTaskPage").append($taskContent);
+                } 
+
+                listTaskArray();
+
+                $(".contentTaskPage").on("click","li button",function(){
+                    var a=$(this).attr("button-id");
+                        
+                    ToDoListArray.splice(a,1);
+
+                    for(var i=0;i<ToDoListArray.length;i++){
+                        console.warn(ToDoListArray[i])
+                    }
+                     
+                     $(this).remove();
+                    //  $("li").remove();
+                    // $("li[button-id="+a+"]").remove();
+
+                   
+
+                     listTaskArray();
+                    
+                     
+                });
+
+
 
             }
 
