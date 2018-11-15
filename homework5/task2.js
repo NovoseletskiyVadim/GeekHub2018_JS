@@ -102,14 +102,12 @@ var mainFunktion_2=function(){
                     for(var i=0;i<ToDoListArray.length;i++){
                         // console.log(ToDoListArray[i]);
 
-                        if(ToDoListArray[i]!=undefined){
 
                             $taskContentLiButton=$("<button>").attr('button-id', i).text("delete");
                             $taskContentLi=$("<li>").attr('data-id', i);
                             $taskContentLi.text(ToDoListArray[i]).append($taskContentLiButton);
                             $taskContent.append($taskContentLi);
 
-                        }
                     
                     }
                     // добавляем ul на страницу
@@ -123,9 +121,11 @@ var mainFunktion_2=function(){
                         
                     ToDoListArray.splice(a,1);
  
-                     $(this).remove();
+                    $(this).remove();
                     
                     $("li[data-id="+a+"]").remove();
+                    
+                    // listTaskArray();
                     
                 });
 
