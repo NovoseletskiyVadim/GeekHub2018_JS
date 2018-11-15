@@ -128,10 +128,9 @@ var mainFunktion_2=function(){
                     }
                      
                      $(this).remove();
-                    //  $("li").remove();
-                    // $("li[button-id="+a+"]").remove();
-
-                   
+                    
+                    $("li[data-id="+a+"]").remove();
+                  
 
                      listTaskArray();
                     
