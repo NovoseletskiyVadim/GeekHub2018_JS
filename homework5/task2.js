@@ -30,8 +30,8 @@ var mainFunktion_2=function(){
 
         var days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг",
                      "Пятница", "Суббота"];
-        var months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", 
-            "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+        var months = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", 
+            "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"];
 
         var DateTask=new Date();
         var currentDateTask=DateTask.getDate()+" "+
@@ -63,11 +63,11 @@ var mainFunktion_2=function(){
     // создаем 3 х слушателей  и на кажлого свое действие
     for(var numberBookMark=1;numberBookMark<=3;numberBookMark++){
         var bookMarkSelector=".bookMarks a:nth-child("+numberBookMark+") span";
-        console.log(bookMarkSelector);
+        // console.log(bookMarkSelector);
 
 
         $(bookMarkSelector).on("click", function(){
-            console.log("click");
+            // console.log("click");
             $(".bookMarks span").removeClass("ativated");
             $(this).addClass("ativated");
             $(".contentTaskPage").empty();
@@ -133,7 +133,7 @@ var mainFunktion_2=function(){
 
 
             else if($(this).parent().is(":nth-child(3)")){
-                console.log("щелчек на 3 й вкладке");
+                // console.log("щелчек на 3 й вкладке");
                 var ToDoListArrayReverse=[];
                 ToDoListArrayReverse=ToDoListArray.slice();
                 ToDoListArrayReverse.reverse();
@@ -142,7 +142,7 @@ var mainFunktion_2=function(){
                 $taskContent=$("<ul>");// создаем тег <ul>
 
                 for(var i=0;i<ToDoListArrayReverse.length;i++){
-                    console.log(ToDoListArrayReverse[i]);
+                    // console.log(ToDoListArrayReverse[i]);
 
                         $taskContentLiButton=$("<button>").attr('button-id', i).text("delete");
                         $taskContentLi=$("<li>").attr('data-id', i);
