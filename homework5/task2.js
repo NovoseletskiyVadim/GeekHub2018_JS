@@ -96,16 +96,16 @@ var mainFunktion_2=function(){
                 //     // добв. в ul , li со значениям из массива
                 //     $taskContent.append($("<li>").text(element));
                 // });
+                
                 //функция вывода списка заданий 
-                var listTaskArray=function(){
+                var $listTaskArray=function(myArray){
                     $(".contentTaskPage").empty();
-                    for(var i=0;i<ToDoListArray.length;i++){
+                    for(var i=0;i<myArray.length;i++){
                         // console.log(ToDoListArray[i]);
-
 
                             $taskContentLiButton=$("<button>").attr('button-id', i).text("delete");
                             $taskContentLi=$("<li>").attr('data-id', i);
-                            $taskContentLi.text(ToDoListArray[i]).append($taskContentLiButton);
+                            $taskContentLi.text(myArray[i]).append($taskContentLiButton);
                             $taskContent.append($taskContentLi);
 
                     
@@ -114,7 +114,7 @@ var mainFunktion_2=function(){
                      $(".contentTaskPage").append($taskContent);
                 } 
 
-                listTaskArray();
+                $listTaskArray(ToDoListArray);
 
                 $(".contentTaskPage").on("click","li button",function(){
                     var a=$(this).attr("button-id");
@@ -124,9 +124,7 @@ var mainFunktion_2=function(){
                     $(this).remove();
                     
                     $("li[data-id="+a+"]").remove();
-                    
-                    // listTaskArray();
-                    
+                                        
                 });
 
 
@@ -135,8 +133,28 @@ var mainFunktion_2=function(){
 
 
             else if($(this).parent().is(":nth-child(3)")){
-                // console.log("щелчек на 3 й вкладке");
+                console.log("щелчек на 3 й вкладке");
+                var ToDoListArrayReverse=[];
+                ToDoListArrayReverse=ToDoListArray.slice();
+                ToDoListArrayReverse.reverse();
 
+                var $taskContent, $taskContentLi, $taskContentLiButton;
+                $taskContent=$("<ul>");// создаем тег <ul>
+
+                for(var i=0;i<ToDoListArrayReverse.length;i++){
+                    console.log(ToDoListArrayReverse[i]);
+
+                        $taskContentLiButton=$("<button>").attr('button-id', i).text("delete");
+                        $taskContentLi=$("<li>").attr('data-id', i);
+                        $taskContentLi.text(ToDoListArrayReverse[i]).append($taskContentLiButton);
+                        $taskContent.append($taskContentLi);
+
+                
+                }
+                // добавляем ul на страницу
+                 $(".contentTaskPage").append($taskContent);
+
+                // $listTaskArray(ToDoListArray);
                 
             };  
             return false;
