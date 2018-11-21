@@ -1,0 +1,28 @@
+div.bookMarks>a span{
+    display: inline-block;
+    width: 17em;
+    height: 2em;
+    text-align: center;
+    background-color: aqua;
+    padding-top: 0.5em;
+}
+
+div.bookMarks a span.ativated{
+    background-color: yellowgreen;
+}
+
+.oneTamagochiNo{
+    display: none;
+}
+
+.armyTamagochiNo{
+    display: none;
+}
+
+.oneTamagochiYes{
+    display: block;
+}
+
+.armyTamagochiYes{
+    display: block;
+}
