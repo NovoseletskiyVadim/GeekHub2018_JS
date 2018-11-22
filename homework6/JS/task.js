@@ -162,6 +162,9 @@ var mainTomaggochi=function(){
                                             $("td.OutPutMoney").append(Tomagochi_1._money);
                                             $("td.OutPutHappiness").append(Tomagochi_1._happiness);
 
+                                            $("td.emoTomagochi").empty();
+                                            $("td.emoTomagochi").append($('<img>',{id:'theImg',src:'IMAGE/0.png'}));
+
                                             alert("Томагочи умер!!!");
                                             return;
                                         }
@@ -172,12 +175,14 @@ var mainTomaggochi=function(){
                                             $("td.OutPutMoney").append(Tomagochi_1._money);
                                             $("td.OutPutHappiness").append(Tomagochi_1._happiness);
 
-                                            
-                                            $("td.emoTomagochi").append('<img  src="/IMAGE/1.jpg" />');
+                                            $("td.sayTomagochi").empty();
+                                            $("td.sayTomagochi").append("Хозяин!!!Томагочи умирает!!");
+
+                                            $("td.emoTomagochi").empty();
+                                            $("td.emoTomagochi").append($('<img>',{id:'theImg',src:'IMAGE/0.png'}));
                                             
 
 
-                                            alert("Томагочи умирает!!!");
                                         }
                                         else if(parseInt(Tomagochi_1._health)<=30){
                                             $("td.OutPutHealth").append(Tomagochi_1._health);
@@ -185,8 +190,25 @@ var mainTomaggochi=function(){
                                             $("td.OutPutStrength").append(Tomagochi_1._strength);
                                             $("td.OutPutMoney").append(Tomagochi_1._money);
                                             $("td.OutPutHappiness").append(Tomagochi_1._happiness);
+
+                                            $("td.sayTomagochi").empty();
+                                            $("td.sayTomagochi").append("Томагочи заболел!!");
                                             
-                                            alert("Томагочи заболел!!!");
+                                            $("td.emoTomagochi").empty();
+                                            $("td.emoTomagochi").append($('<img>',{id:'theImg',src:'IMAGE/1.png'}));
+                                        }
+                                        else if ((Tomagochi_1._health)>30&&(Tomagochi_1._happiness)>80){
+                                            $("td.OutPutHealth").append(Tomagochi_1._health);
+                                            $("td.OutPutSatiety").append(Tomagochi_1._satiety);
+                                            $("td.OutPutStrength").append(Tomagochi_1._strength);
+                                            $("td.OutPutMoney").append(Tomagochi_1._money);
+                                            $("td.OutPutHappiness").append(Tomagochi_1._happiness);
+
+                                            $("td.sayTomagochi").empty();
+                                            $("td.sayTomagochi").append("Хозяин !!Томагочи в счастлив))))!!");
+
+                                            $("td.emoTomagochi").empty();
+                                            $("td.emoTomagochi").append($('<img>',{id:'theImg',src:'IMAGE/8.png'}));
                                         }
 
                                         else if(parseInt(Tomagochi_1._health)>30){
@@ -195,25 +217,17 @@ var mainTomaggochi=function(){
                                             $("td.OutPutStrength").append(Tomagochi_1._strength);
                                             $("td.OutPutMoney").append(Tomagochi_1._money);
                                             $("td.OutPutHappiness").append(Tomagochi_1._happiness);
+
+                                            $("td.sayTomagochi").empty();
+                                            $("td.sayTomagochi").append("Томагочи в норме))))!!");
+
+                                            $("td.emoTomagochi").empty();
+                                            $("td.emoTomagochi").append($('<img>',{id:'theImg',src:'IMAGE/2.png'}));
                                         }
-                                        
-                                       
-                                       
-
-
-                                
+                                                                        
                                     setTimeout(run, 1000);
                                     }, 1000);
                                         
-                                
-    
-                               
-    
-    
-
-    
-    
-    
                                 // клик кушать
                                 $(".toFeed").on("click", function(){
                                     Tomagochi_1._ToFeed();
@@ -295,7 +309,6 @@ var mainTomaggochi=function(){
                                 $(".toTravel").on("click", function(){
                                     
                                     var resultTravel=Tomagochi_1._toTravel();
-                                    // return[healthValue, strengthValue,happinessValue,moneyValue,satietiValue];
 
                                     $("td.OutPutHealth").empty();
                                     $("td.OutPutHealth").append(resultTravel[0]);
@@ -334,12 +347,9 @@ var mainTomaggochi=function(){
         }else{
             alert("error:Вы не ввели имя!!");
         }
-
-
-        // console.log("клик по кнопке <Start>");
     });
 
-    console.log("jQuery -ok");
+    // console.log("jQuery -ok");
 }
 
 $(document).ready(mainTomaggochi);
