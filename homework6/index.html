@@ -4,11 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="container">
 
-    <script type="text/javascript" src="task.js"></script>
+        <form style="width: 30%">
+            <fieldset>
+
+                <table>
+
+                    <tr>
+                        <td>имя</td>
+                        <td><input class="Name"  type="text" name="Name"></td>
+                    </tr>
+
+                    <tr>
+                        <td>здоровье:</td>
+                        <td><input class="Health" type="number" name="Health"></td>
+                    </tr>
+
+                    <tr>
+                        <td>сытость:</td>
+                        <td><input class="Satiety" type="number" name="Satiety"></td>
+                    </tr>
+
+                    <tr>
+                        <td>сила:</td>
+                        <td><input class="Strength" type="number" name="Strength"></td>
+                    </tr>
+
+                    <tr>
+                        <td>деньги:</td>
+                        <td><input class="Money" type="number" name="Money" ></td>
+                    </tr>
+
+                    <tr>
+                        <td>счастье:</td>
+                        <td> <input class="Happiness" type="number" name="Happiness"></td>
+                    </tr>
+
+                </table>
+                <legend>Введите жизненные показатели Томагочи:</legend>
+                    
+            </fieldset>
+        </form>
+
+        <button class="Start"> Start </button>
+
+        <div>
+            <table style="float: left;" >
+                <!-- 1 -->
+                <tr>
+                    <td colspan="11" rowspan="9" style=""><img src="IMAGE/tomagochi.JPG" alt=""></td>
+                    <td><button class="toFood">Кушать</button></td>
+                </tr>
+                <!-- 2 -->
+                <tr>
+                     <td class="toPlay"><button>Спортзал</button></td>
+                </tr>
+                <!-- 3 -->
+                <tr>
+                     <td class="toWork"><button>Работать</button></td>
+                </tr>
+                <!-- 4 -->
+                <tr>
+                     <td><button class="toSleep">Спать</button></td>
+                </tr>
+                <!-- 5 -->
+                <tr>
+                     <td><button class="toTravel">Путешествовать</button></td>
+                </tr>
+                <!-- 6 -->
+                <tr>
+                     <td><button>Button 6</button></td>
+                </tr>
+                <!-- 7 -->
+                <tr>
+                     <td><button>Button 7</button></td>
+                </tr>
+                <!-- 8 -->
+                <tr>
+                     <td><button>Button 8</button></td>
+                </tr>
+                 <!-- 9 -->
+                <tr>
+                     <td><button>Button 9</button></td>
+     
+                 </tr>
+     
+                <!-- 10 -->
+                <tr>
+                     <td class="OutPutName">имя: </td>
+     
+                     <td><img src="IMAGE/health.png"  alt=""></td>
+                     <td class="OutPutHealth"></td>
+                     <td><img src="IMAGE/food.png" alt=""></td> 
+                     <td class="OutPutSatiety"></td> 
+                     <td><img src="IMAGE/Strength.png" alt=""></td>
+                     <td class="OutPutStrength"></td>
+                     <td><img src="IMAGE/money.png" alt=""></td>
+                     <td class="OutPutMoney"></td>
+                     <td><img src="IMAGE/happy.png" alt=""></td>
+                     <td class="OutPutHappiness"></td>
+                </tr>
+            </table>
+
+            <table>
+                <caption> <b> Эмоции томагочи</b></caption>
+                <tr>
+                    <td class="emoTomagochi" rowspan="6" colspan="6"><img src="IMAGE/3.jpeg" alt=""></td>
+                </tr>    
+            </table>
+        </div>
+
+       
+
+       
+
+
+        
+        
+
+
+            
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="JS/task.js"></script>
 </body>
 </html>
