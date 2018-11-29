@@ -4,13 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    
+
     <title>Task 7</title>
+
+    <style>
+        
+        div.bookMarks>a span{
+            display: inline-block;
+            width: 17em;
+            height: 2em;
+            text-align: center;
+            background-color: aqua;
+            padding-top: 0.5em;
+        }
+
+        div.bookMarks a span.ativated{
+            background-color: yellowgreen;
+        }
+
+        input:checked + span {
+        background: #fc0;
+        }
+        
+    </style>
 </head>
 
 
 
 <body>
     
+    <div class="container">
+        <div class="bookMarks">
+            <a href="" ><span class="ativated">Добавить новую задачу</span></a>
+            <a href=""><span>Список задач</span></a>
+            <a href=""><span>Cначала новые </span></a>
+        </div>
+
+        <div class="contentTaskPage">
+                
+        </div>
+
+        <div class="blockAddNewTask">
+
+        </div>
+    </div>
+
 
 
 
