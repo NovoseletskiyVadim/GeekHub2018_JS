@@ -111,3 +111,29 @@ console.timeEnd('Timer1');
 
 //  5. Форматирование минифицированного кода
 //Нажмите кнопку {} 
+
+
+// 6 Быстрая отладка функции
+// не работает на закрытых и анонимных функциях.
+
+// debug(funcName)
+
+
+// 7  Скрипты, не требующие отладки
+/*Решение заключается в складывании скриптов в «черный ящик», 
+который не нужно отлаживать. В этот ящик могут входить и Ваши 
+скрипты.*/ 
+
+// 8.Найдите важные вещи с помощью более сложных способов отладки
+
+console.todo = function(msg) {
+    console.log(' % c % s % s % s', 'color: yellow; background - color: black;', '–', msg, '–');
+  }
+   
+  console.important = function(msg) {
+    console.log(' % c % s % s % s', 'color: brown; font - weight: bold; text - decoration: underline;', '–', msg, '–');
+  }
+   
+  console.todo('This is something that s need to be fixe');
+  console.important('This is an important message');
+  
