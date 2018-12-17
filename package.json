@@ -1,0 +1,21 @@
+{
+  "name": "geekhub2018",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NovoseletskiyVadim/GeekHub2018_JS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NovoseletskiyVadim/GeekHub2018_JS/issues"
+  },
+  "homepage": "https://github.com/NovoseletskiyVadim/GeekHub2018_JS#readme"
+}
