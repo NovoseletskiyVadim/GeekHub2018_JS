@@ -10,20 +10,23 @@
 </head>
 <body>
 
-    <form class="input-form" id="form_post">
+    <form class="input-form" id="form_category">
 
-        <input type="text" class="" id="text_author" placeholder="Enter author">
-        <input type="text" class="" id="text_category" placeholder="Enter category">
-        <input type="text" class="" id="text_quote" placeholder="Enter quote">
+        <label for="catalog">Выберите катeгорию:</label>
+
+        <input type="text"  placeholder="funny cat(example world)" id="catalog">
+           
+
         <input type="submit" class="" id="btn_address" value="Add(post)">
     </form>
+
+    
 
     <div>
         <table border="1" id="book">
             <tr>
-                <td class="caption">Author</td>
-                <td class="caption">Category</td>
-                <td class="caption">Quote</td>
+                <td class="caption">id</td>
+                <td class="caption">Image gif</td>
             </tr>
             
         </table>
@@ -32,9 +35,8 @@
 
    
 
- 
-    <script type="text/javascript" src="js/ajaxFreeApiGet.js"></script>
+
+    <script type="text/javascript" src="js/ajaxExample2.js"></script>
     <script type="text/javascript" src="js/createElements.js"></script>
-    <script type="text/javascript" src="js/ajaxFreeApiPost.js"></script>
 </body>
 </html>
