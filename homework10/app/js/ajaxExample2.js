@@ -11,7 +11,8 @@ function getGifInformation(e){
     if(gifNameString.length){
         
 
-        var xhrString="http://api.giphy.com/v1/gifs/search?q="+gifNameString+"&api_key=h5upGpL1INqGInuVWonyqZBigFZZwaav&limit=5"
+        var xhrString="http://api.giphy.com/v1/gifs/search?q="+gifNameString+
+        "&api_key=h5upGpL1INqGInuVWonyqZBigFZZwaav&limit=5"
 
 
 
