@@ -92,6 +92,8 @@ function handleDragEnd(e) {
 
 var cols = document.querySelectorAll('#columns .column');
 
+console.log("cols=",cols);
+
 [].forEach.call(cols, function(col) {
 
     col.addEventListener('dragstart', handleDragStart, false);
