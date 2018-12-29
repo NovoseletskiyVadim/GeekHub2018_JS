@@ -1,3 +1,4 @@
+
 var gulp = require('gulp'),
 sass= require('gulp-sass'), 
 browserSync= require('browser-sync'); 
@@ -18,7 +19,11 @@ gulp.task('browser-sync', function() { // Создаем таск browser-sync
     });
 });
 
-gulp.task('mywatch', ['browser-sync', 'sass'], function() {
-    gulp.watch('app/sass/**/*.sass', ['sass']); // Наблюдение за sass файлами
+gulp.task('watch',  function() {
+    gulp.watch('app/sass/**/*.sass', gulp.parallel('sass')); // Наблюдение за sass файлами
     // Наблюдение за другими типами файлов
 });
+
+gulp.task('default', gulp.parallel('watch','browser-sync','sass'))
+
+
