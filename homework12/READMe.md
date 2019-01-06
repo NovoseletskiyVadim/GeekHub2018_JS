@@ -14,4 +14,4 @@
 
 # link to my page :https://novoseletskiyvadim.github.io/
 
-# link to my home work task:https://github.com/NovoseletskiyVadim/NovoseletskiyVadim.github.io/commit/6231815054348605c99b125dfc4d6a947fefd3d6
+# link to my home work task:https://github.com/NovoseletskiyVadim/NovoseletskiyVadim.github.io
