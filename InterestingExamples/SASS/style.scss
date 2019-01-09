@@ -1,0 +1,111 @@
+
+// переменные
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+
+// вложенности 
+
+nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+    li { display: inline-block; }
+  
+    a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+    }
+}
+  
+
+// фрагментирование 
+/*
+    Фрагмент — это простой Sass-файл, имя которого начинается с нижнего подчеркивания, 
+    например, _partial.scss.
+*/ 
+
+@import 'partial';
+
+/*
+    Миксины позволяют создавать группы деклараций CSS, которые вам придется использовать 
+    по нескольку раз на сайте. Хорошо использовать миксины для вендорных префиксов. Пример 
+    для border-radius:
+
+    Для создания миксина используйте директиву @mixin + название этого миксина.
+    Мы назвали наш миксин border-radius. Также, в миксине мы используем переменную $radius
+    внутри скобок, тем самым позволяя себе передавать в переменной все, что захотим. 
+*/ 
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+  
+.box { @include border-radius(10px); }
+
+
+// расширение . наследование
+
+// Данный отрывок кода не попадет в CSS, так как %equal-heights никогда не расширялся.
+%equal-heights {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  // Данный отрывок кода попадет в CSS потому, что %message-shared расширен.
+  %message-shared {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+  }
+  
+  .message {
+    @extend %message-shared;
+  }
+  
+  .success {
+    @extend %message-shared;
+    border-color: green;
+  }
+  
+  .error {
+    @extend %message-shared;
+    border-color: red;
+  }
+  
+  .warning {
+    @extend %message-shared;
+    border-color: yellow;
+  }
+
+
+//   математические операции
+
+.container { width: 100%; }
+
+
+article[role="main"] {
+  float: left;
+  width: 600px / 960px * 100%;
+}
+
+aside[role="complementary"] {
+  float: right;
+  width: 300px / 960px * 100%;
+}
+
+  
+  
