@@ -14,11 +14,11 @@
     
 */ 
 
-var dragSrcEl = null;
+export var dragSrcEl = null;
 
 
 // обработчик события dragstart
-function handleDragStart(e) {
+export function handleDragStart(e) {
    
     dragSrcEl = this;
 
@@ -28,7 +28,7 @@ function handleDragStart(e) {
 }
 
 
-function handleDragOver(e) {
+export function handleDragOver(e) {
 
     if (e.preventDefault) {
         e.preventDefault(); 
@@ -39,17 +39,17 @@ function handleDragOver(e) {
     return false;
 }
 
-function handleDragEnter(e) {
+export function handleDragEnter(e) {
 
 }
 
-function handleDragLeave(e) {
+export function handleDragLeave(e) {
    
 
 }
 
 
-function handleDrop(e) {
+export function handleDrop(e) {
 
     if (e.stopPropagation) {
         e.stopPropagation(); // stops the browser from redirecting.
@@ -66,7 +66,7 @@ function handleDrop(e) {
 
 }
 
-function handleDragEnd(e) {
+export function handleDragEnd(e) {
 
     // setTimeout(FinishPlay,100);
 }

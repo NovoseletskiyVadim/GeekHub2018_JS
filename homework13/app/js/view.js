@@ -1,3 +1,15 @@
+export default View;
+import {
+
+    handleDragStart,
+    handleDragOver,
+    handleDragEnter,
+    handleDragLeave,
+    handleDrop,
+    handleDragEnd
+        
+} from './dragAndDrop.js';
+
 
 // конструктор
 function View(){}
@@ -221,7 +233,7 @@ View.prototype={
         $(".contentTaskPage").append($taskTable); 
     
         var cols = document.querySelectorAll('tr.dragAndDrop');
-        console.log("cols=",cols);
+        // console.log("cols=",cols);
         [].forEach.call(cols, function(col) {
 
         col.addEventListener('dragstart', handleDragStart, false);

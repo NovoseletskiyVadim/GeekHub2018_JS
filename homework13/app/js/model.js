@@ -1,15 +1,8 @@
-// конструктор
-function createObjectForLocalStorage(completionStatus,timeOfCreateTask, textOfTask){
+import createObjectForLocalStorage from './createObjectForLocalStorage.js';
 
-    this._completionStatus=completionStatus;
-    this._timeOfCreateTask=timeOfCreateTask;
-    this._textOfTask=textOfTask;
-
-}
-
+export default ModelLocalStorage;
 // конструктор
 function ModelLocalStorage(){
-    // this._tasks=tasks;
     
 }
 
@@ -75,14 +68,14 @@ ModelLocalStorage.prototype={
     },
 
 
-    // TODO: метод возвращения массива из local storage;
+    // метод возвращения массива из local storage;
     arrFfromLocalStorage:function(){
 
         var renderArray=[];
 
         var myCounter=0;
         
-        // TODO: add information in the array from local storage
+        // add information in the array from local storage
         for(var key in window.localStorage){
             myCounter++;
             if(myCounter<=window.localStorage.length){

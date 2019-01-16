@@ -1,3 +1,6 @@
+import createObjectForLocalStorage from './createObjectForLocalStorage.js';
+export default Controler;
+
 
 // конструктор 
 function Controler(model,view){

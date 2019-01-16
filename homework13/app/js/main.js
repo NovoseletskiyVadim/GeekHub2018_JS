@@ -1,3 +1,6 @@
+import ModelLocalStorage from './model.js';
+import Controler from './controler.js';
+import View from './view.js'; 
 
  $(document).ready(function(){
 
