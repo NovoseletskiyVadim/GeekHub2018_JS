@@ -1,0 +1,2 @@
+body{margin:0;padding:0}div.bookMarks>a span{display:inline-block;width:17em;height:2em;text-align:center;background-color:aqua;padding-top:0.5em}div.bookMarks a span.ativated{background-color:yellowgreen}input:checked+span{background:#9dff00}
+
