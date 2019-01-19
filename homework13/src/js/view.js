@@ -1,4 +1,8 @@
+
+// экспортирую вьюху в main.js(точка входа)
 export default View;
+
+// импорт функционала Drag And Drop
 import {
 
     handleDragStart,
@@ -252,7 +256,6 @@ View.prototype={
 
 
 }
-
 
 
 

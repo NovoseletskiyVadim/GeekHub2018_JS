@@ -1,6 +1,11 @@
+
+// импортирую модуль с  шаблоном обьекта(по которому записиваю обьекты и извлекаю из LocalStorage )
 import createObjectForLocalStorage from './createObjectForLocalStorage.js';
 
+// экспортирую модель в main.js(точка входа)
 export default ModelLocalStorage;
+
+
 // конструктор
 function ModelLocalStorage(){
     
@@ -95,3 +100,4 @@ ModelLocalStorage.prototype={
 
 
 }
+

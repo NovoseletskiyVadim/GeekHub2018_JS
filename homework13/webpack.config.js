@@ -9,7 +9,12 @@ module.exports = ( env, options ) => {
 		output: {
 			path: path.resolve( __dirname, 'dist' ),
 			filename: 'bundle.js',
+			publicPath:'dist',
 		},
+		devServer:{
+			overlay:true
+		},
+
 		// devtool:  'cheap-eval-source-map',
 		module: {
 			rules: [
