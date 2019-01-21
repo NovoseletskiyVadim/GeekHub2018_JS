@@ -1,3 +1,4 @@
+import $ from 'jquery';
 
 // импортирую модуль с  шаблоном обьекта(по которому записиваю обьекты и извлекаю из LocalStorage )
 import createObjectForLocalStorage from './createObjectForLocalStorage.js';

@@ -1,3 +1,4 @@
+import $ from 'jquery';
 
 // экспортирую вьюху в main.js(точка входа)
 export default View;

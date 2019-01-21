@@ -1,3 +1,4 @@
+import $ from 'jquery';
 
 // импортирую модуль с  шаблоном обьекта(по которому записиваю обьекты и извлекаю из LocalStorage )
 import createObjectForLocalStorage from './createObjectForLocalStorage.js';
@@ -84,11 +85,14 @@ ModelLocalStorage.prototype={
         for(var key in window.localStorage){
             myCounter++;
             if(myCounter<=window.localStorage.length){
-
-                //  добавлением обьектов из local Storage в массив  renderArray=[];
-                var returnObjFromLocalStorage=JSON.parse(window.localStorage.getItem(key));
+                if(parseInt(key)){
+                    //  добавлением обьектов из local Storage в массив  renderArray=[];
+                    var returnObjFromLocalStorage=JSON.parse(window.localStorage.getItem(key));
             
-                renderArray[parseInt(key)]=returnObjFromLocalStorage;
+                     renderArray[parseInt(key)]=returnObjFromLocalStorage;
+                }
+                else continue;
+                
                 
                 
             }

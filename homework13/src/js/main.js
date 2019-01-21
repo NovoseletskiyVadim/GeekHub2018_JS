@@ -1,5 +1,5 @@
 
-// import $ from 'jquery';
+import $ from 'jquery';
 
 import ModelLocalStorage from './model';
 
