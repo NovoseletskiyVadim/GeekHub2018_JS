@@ -1,10 +1,18 @@
 //by Denys Pysmennyi
 
 function perform() {
+	
+	
 	//TODO implement
+	return new Promise(function(resolve, reject){
+		resolve(
+			1
+		);
+	});
 }
 
-perform(null, function(value) { // value === null
+perform(null, function(value){ // value === null
+
 	var param = 1;
 	console.log(param); // 1
 	return param;
@@ -14,6 +22,10 @@ perform(null, function(value) { // value === null
 	return param;
 })
 .then(function(param) { // param === 2
+	console.log(++param); // 3
+	return param;
+})
+.then(function(param) { // param === 3
 	console.log(++param); // 3
 	return param;
 });
