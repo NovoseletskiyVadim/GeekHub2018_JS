@@ -2,11 +2,11 @@
 
 function perform() {
 	
-	
+	let value=null;
 	//TODO implement
 	return new Promise(function(resolve, reject){
 		resolve(
-			1
+			value
 		);
 	});
 }
