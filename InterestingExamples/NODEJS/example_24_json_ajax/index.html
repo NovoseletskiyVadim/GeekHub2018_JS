@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Регистрация</title>
+</head>
+<body>
+    <h1>Введите данные</h1>
+
+    <form name="registerForm">
+        <label for="">Имя:</label>
+        <input type="text" name="userName"/></br></br>
+        <label for="">возраст:</label>
+        <input type="number" name="userAge"/></br></br>
+        <button type="submit" id="submit">Отправить</button>
+    </form>
+
+<script>
+    document.getElementById('submit').addEventListener('click', function(e){
+        e.preventDefault();
+
+        // получеем данные формы
+
+        let registerForm=document.forms['registerForm'];
+        let userName=registerForm.elements['userName'].value;
+        let userAge=registerForm.elements['userAge'].value;
+
+        // сериалзируем данные в json
+        let user= JSON.stringify({userName:userName, userAge:userAge});
+
+        let request=new XMLHttpRequest();
+
+        // посылаем запрос на адрес user
+
+        request.open('POST', '/user', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+
+        request.addEventListener('load', function(){
+            // проверяеи ответ с сервера 
+            console.log(request.response);
+        });
+
+        request.send(user);
+
+    });
+</script>
+
+</body>
+</html>
