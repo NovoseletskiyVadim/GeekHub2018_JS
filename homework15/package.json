@@ -1,0 +1,21 @@
+{
+  "name": "node_js_mongo_db",
+  "version": "1.0.0",
+  "description": "My first projeckt by node + mongo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "mongoose": "^4.7.6",
+    "socket.io": "^1.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "author": "Novoseletskiy Vadim",
+  "license": "ISC"
+}
