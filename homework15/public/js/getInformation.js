@@ -95,7 +95,8 @@ function getProducts() {
                 $productTable.append($row_product);
             
             }
-
+            let $nameForListProduct=$('<h3>').text('Полный список продуктов:');
+            $('.listProduct').append($nameForListProduct);
             $('.listProduct').append($productTable);
         }
     });

@@ -134,7 +134,7 @@ function getListMenu(){
 
                  
                     let $menuName=$('<span>').text(''+listMenu[i].name),
-                    $menuKkall=$('<span>').text(''+listMenu[i].kkall),
+                    $menuKkall=$('<span>').text(''+listMenu[i].kkall+' Kkal'),
                     $menuButton=$('<button>').text('Delete')
                                                 .attr('data-delete', listMenu[i]._id)
                                                 .addClass('delete');
@@ -160,16 +160,19 @@ function getListMenu(){
             let $nameForTable=$('<h3>').text('Меню продуктов');
             let $maxKalorii=$('<p>').text('массим. колчество калорий:').addClass('maxNameMenu');
             let $currentKalorii=$('<p>').text('текущее значение калорий:').addClass('currentMenu');
+            let $kontrol=$('<p>').addClass('kontrolKalorii');
+           
             $('.listMenu').append($nameForTable);
             $('.listMenu').append($maxKalorii);
             $('.listMenu').append($currentKalorii);
+            $('.listMenu').append($kontrol);
             $('.listMenu').append($menuTable);
+
+
+            getMaxValue();
+            getCurentValue();
+            controlValue();
             
-
-
-
-
-
         }
 
     });
@@ -177,9 +180,86 @@ function getListMenu(){
 
 }
 
+function getMaxValue(){
+
+    $.ajax({
+
+        url:"/api/getMaxKalorii/",
+        type:"GET",
+        contentType:"application/json",
+        success:function(oneDoc){
+
+            // console.table('oneDoc.maxValue=', oneDoc.maxValue);            
+
+            $("p.maxNameMenu").replaceWith("<p class='maxNameMenu'>"+"массим. колчество калорий:"+oneDoc.maxValue+' Kkal'+"</p>");
+            
+        }
+    });   
+
+
+};
+
+function getCurentValue(){
+    $.ajax({
+
+        // url:"/api/getCurentValue/",
+        url:"/api/addCurrentValue/",
+        type:"GET",
+        contentType:"application/json",
+        success:function(oneDoc){
+
+            console.table('oneDoc.currentValue=', oneDoc.currentValue);            
+            $("p.currentMenu").replaceWith("<p class='currentMenu'>"+"текущее. количе  ство калорий:"+oneDoc.currentValue+' Kkal'+"</p>");
+            
+        }
+    });  
+
+};
+
+function controlValue(){
+
+    $.ajax({
+
+        url:"/api/kontrolValues/",
+        type:"GET",
+        contentType:"application/json",
+        success:function(result){
+
+            // console.table('result=', result);
+            let max=parseInt(result[0].maxValue);
+            let curent=parseInt(result[1].currentValue);
+            // console.log('max=',max);
+            // console.log('curent=',curent);
+
+            
+            if(curent>max){
+
+                let information=curent-max;
+                // alert("Внимание !!!! \n превышение калорий на \n"+ information+ " Kkal")
+                
+                $("p.kontrolKalorii").replaceWith("<p class='kontrolKalorii'>"+"Внимание!!! превышение на :"+information+' Kkal'+"</p>");
+
+
+            }
+            else{
+                $("p.kontrolKalorii").replaceWith("<p class='kontrolKalorii'>"+"</p>");
+
+            }
+            
+            
+        }
+    });  
+}
+
+
+
 $(document).ready(function(){
 
+
+
     getProductsForMenu();
+
+    // getMaxValue();
 
     getListMenu();
 

@@ -5,7 +5,8 @@ $('body').on('click', '.add', function(){
     let id=$(this).data('add')
     // console.log('0 Id=',id);
     AddMenuInList(id);
-
+    getCurentValue();
+    controlValue();
 });
 
 function AddMenuInList(id){
@@ -26,7 +27,7 @@ function AddMenuInList(id){
 
                  
             let $menuName=$('<span>').text(''+product.name),
-            $menuKkall=$('<span>').text(''+product.kkall),
+            $menuKkall=$('<span>').text(''+product.kkall+ ' Kkal'),
             $menuButton=$('<button>').text('Delete')
                                         .attr('data-delete', product._id)
                                         .addClass('delete');
@@ -45,15 +46,27 @@ function AddMenuInList(id){
 
             // $menuTable.append($row_menu);
 
-                $('.itemsMenu').append($row_menu)
-
-            
-
-
-           
+                $('.itemsMenu').append($row_menu);           
         }
 
     });
 
-}
+};
+
+function getCurentValue(){
+    $.ajax({
+
+        // url:"/api/getCurentValue/",
+        url:"/api/addCurrentValue/",
+        type:"GET",
+        contentType:"application/json",
+        success:function(oneDoc){
+
+            console.table('oneDoc.currentValue=', oneDoc.currentValue);            
+            $("p.currentMenu").replaceWith("<p class='currentMenu'>"+"текущее. количе  ство калорий:"+oneDoc.currentValue+' Kkal'+"</p>");
+            
+        }
+    });  
+
+};
 

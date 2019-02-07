@@ -5,6 +5,8 @@ $('body').on('click','.delete', function(){
     // console.log('id=',id);
 
     DeleteItemMenu(id);
+    getCurentValue();
+    controlValue();
 
 });
 
@@ -23,4 +25,22 @@ function DeleteItemMenu(id){
             }
         }
     );
-}
+};
+
+function getCurentValue(){
+    $.ajax({
+
+        // url:"/api/getCurentValue/",
+        url:"/api/addCurrentValue/",
+        type:"GET",
+        contentType:"application/json",
+        success:function(oneDoc){
+
+            // console.table('oneDoc.currentValue=', oneDoc.currentValue);            
+            $("p.currentMenu").replaceWith("<p class='currentMenu'>"+"текущее. количе  ство калорий:"+oneDoc.currentValue+' Kkal'+"</p>");
+            
+        }
+    });  
+
+};
+

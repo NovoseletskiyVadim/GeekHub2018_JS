@@ -126,7 +126,8 @@ app.put("/api/listProduct", jsonParser, function(req, res){
 });
 
 
-// страница меню вывод даных продуктов 
+// Страница "Меню" .  
+// Вывод данных о продуктах из базы
 
 app.get('/api/getProductForMenu', function(req,res){
 
@@ -139,7 +140,8 @@ app.get('/api/getProductForMenu', function(req,res){
 
 });
 
-// страница меню .  Выаод данных меню из базы
+// Страница "Меню" .  
+// Вывод данных о продуктах добавленных а меню (из базы)
 
 app.get('/api/getListMenu', function(req,res){
 
@@ -147,25 +149,48 @@ app.get('/api/getListMenu', function(req,res){
     collection.find({}).toArray(function(err, listMenu){
         if(err) return console.log(err);
 
-
-
         res.send(listMenu)
     })
 
 });
 
-// обработка доьавления в меню продуктов
-app.get('/api/addListMenu/:id',function(req,res){
+// Страница "Меню" .
+// вывод данных о максимальном количестве калорий 
 
-    // console.log(req);
+app.get('/api/getMaxKalorii', function(req,res){
+
+    const collection=req.app.locals.collection3;
+    collection.findOne({_id:1}, function(err,oneDoc){
+        if(err) console.log(err);
+        // console.log('oneDoc====', oneDoc)
+        res.send(oneDoc);
+    });
+});
+
+// Страница "Меню" .
+// вывод данных о текущем  количестве калорий 
+app.get('/api/getCurentValue/', function(req,res){
+
+    const collection=req.app.locals.collection3;
+
+    collection.findOne({_id:2}, function(err,oneDoc){
+        if(err) console.log(err);
+        // console.log('oneDoc====', oneDoc)
+        res.send(oneDoc);
+    });
+
+
+});
+
+
+// Страница "Меню" .  
+// обработка добавления в меню продуктов
+app.get('/api/addListMenu/:id',function(req,res){
     
     const id = new objectId(req.params.id);
-    // console.log('const id =',id )
     const collection = req.app.locals.collection;
     collection.findOne({_id: id}, function(err, product){
         
-        // console.log("обоаьртка добавления ");
-        // console.log( "product=" ,product);    
 
         if(err) return console.log(err);
 
@@ -176,7 +201,7 @@ app.get('/api/addListMenu/:id',function(req,res){
         collection2.insertOne(itemMenu, function(err,result){
         
             if(err) console.log(err);
-            
+
             res.send(itemMenu);
         });
        
@@ -184,6 +209,7 @@ app.get('/api/addListMenu/:id',function(req,res){
     });
 });
  
+// Страница "Меню".
 // удадение данных с таблицы меню
 app.delete('/api/listMenu/:id', function(req,res){
 
@@ -200,6 +226,9 @@ app.delete('/api/listMenu/:id', function(req,res){
 
 });
 
+// Страница "Меню".
+// сохранение максимального значения калорий 
+
 app.put('/api/addMaxValue', jsonParser, function(req,res){
 
     if(!req.body) return res.sendStatus(400);
@@ -207,11 +236,6 @@ app.put('/api/addMaxValue', jsonParser, function(req,res){
     const id=parseInt(req.body.id);
     const maxKalorii=req.body.maxKkal;
     const collection3=req.app.locals.collection3;
-
-    console.log("const id=",id);
-    console.log("const maxKalorii=",maxKalorii);
-
-
 
     collection3.findOneAndUpdate(
         {_id:id},
@@ -225,6 +249,68 @@ app.put('/api/addMaxValue', jsonParser, function(req,res){
 
 
 });
+
+// Страница "Меню".
+// мониторинг добавления  и удаления + сохранение и обновление текущего значения калорий 
+// на странице
+app.get('/api/addCurrentValue', function(req,res){
+
+    const collection=req.app.locals.collection2;
+    collection.find({}).toArray(function(err, listMenu){
+        if(err) return console.log(err);
+
+        // console.log("listMenu.length=",listMenu.length);
+
+        let curentValue;
+        // если массив > 0 то проходимся циклом по значениям и 
+        // сумируем их иначе присваиваеим текущему значению =0
+        if(listMenu.length>0){
+            curentValue=0;
+            for(let i=0; i<listMenu.length; i++){
+                curentValue+=parseInt(listMenu[i].kkall);
+            }
+
+            // console.log("curentValue=",curentValue)
+        }
+        else curentValue=0;
+
+        // TODO: записать результат в таблицу :user_values
+        const id=2;
+        const collection2=req.app.locals.collection3;
+
+        const current=curentValue;
+
+        collection2.findOneAndUpdate(
+            {_id:2},
+            { $set: { currentValue: current}},
+            {returnOriginal: false },
+            function(err, result){
+            if(err) return console.log(err);
+            const curt = result.value;
+            // console.log("curt =",curt);
+            res.send(curt);
+        });
+    });
+
+});
+
+// Страница "Меню".
+// Контроль за превышением максимального количества калорий
+
+app.get('/api/kontrolValues/', function(req,res){
+
+    const collection=req.app.locals.collection3;
+    collection.find({}).toArray(function(err, values){
+        if(err) return console.log(err);
+
+        // console.log(values);
+        res.send(values);
+
+    });    
+
+
+});
+
 
 
 

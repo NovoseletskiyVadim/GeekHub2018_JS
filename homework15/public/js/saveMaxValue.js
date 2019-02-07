@@ -6,6 +6,7 @@ $("form").submit(function (e) {
 
     saveMaxValue(id, maxValue);
     reset();
+    controlValue();
 });
 
 
@@ -29,8 +30,8 @@ function saveMaxValue(maxValueId,value) {
             maxKkal: value,
         }),
         success: function (maxValueKkal) {
-            console.table(maxValueKkal);
-            // $("tr[data-rowId='" + product._id + "']").remove();
+            // console.table(maxValueKkal);
+            $("p.maxNameMenu").replaceWith("<p class='maxNameMenu'>"+"массим. колчество калорий:"+maxValueKkal.maxValue+' Kkal'+"</p>");
         }
     });
 }

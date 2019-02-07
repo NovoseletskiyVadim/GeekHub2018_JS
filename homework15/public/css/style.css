@@ -283,3 +283,9 @@ input{
 .listMenu h3{
     margin-bottom: 1em;
 }
+
+p.kontrolKalorii{
+    color: #BA0707;
+    font-size: 1.3em;
+    font-weight: bold;
+}
