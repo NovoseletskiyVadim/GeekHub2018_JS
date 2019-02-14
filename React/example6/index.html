@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+</head>
+<body>
+    <!-- Создание компонентов -->
+
+
+    <!-- ReactElement, который был рассмотрен в прошлой теме,
+         позволяет создавать элементы, которые встраиваются на веб-страницу.
+          Однако ReactElement плохо подходит для создания комплексной 
+          разметки HTML. Объекты ReactElement сложно использовать повторно 
+          в других аналогичных ситуациях, сложнее поддерживать. -->
+
+
+    <script type="text/babel">
+
+        // 1 й  способ
+        function Hello() {
+            return <h1>Привет, Eugene</h1>;
+        }
+        // 2 й способ
+        class Hello1 extends React.Component {
+            render() {
+                return <h1>Привет, Eugene</h1>;
+            }
+        }
+
+        // 3 й способ
+        var Hello2 =() => {
+            return (<h1>Привет, Eugene</h1>);
+        }
+
+        // приминение 
+        ReactDOM.render(
+            <Hello />,
+            document.getElementById("header")
+        )
+
+    </script>
+</body>
+</html>

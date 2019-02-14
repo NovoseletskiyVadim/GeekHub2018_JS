@@ -16,6 +16,11 @@
         fontFamily:'Verdana'
     };
 
+    /*
+        для установки класса применяется атрибут className
+        атрибут style в качестве значения принимает объект json. 
+    */ 
+
     ReactDOM.render(
         <div id={user.id} className={userClassName}  style={styleObj}>
 

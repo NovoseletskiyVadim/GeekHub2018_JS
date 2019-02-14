@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- Библтотеки для работы реакты  -->
+    <!-- Для работы с кроссбраузерными запросами для данных скриптов установлен атрибут crossorigin. -->
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <!-- для компиляции кода нам необходим компилятор Babel, который позволяет работать с 
+        кодом по стандарту ES6(ES2015) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
 </head>
 <body>
     <div id="app"></div>
 
     
-     
+     <!-- type="text/babel" атрибут и указывает, что данный код должен обрабатываться выше подключенным компилятором Babel -->
     <script type="text/babel">
         // рендеринг элемента
          ReactDOM.render(

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+</head>
+<body>
+
+        <!-- 
+            Props представляет коллекцию значений, которые 
+            ассоциированы с компонентом. Эти значения позволяют 
+            создавать динамические компоненты, которые не зависят
+            от жестко закодированных статических данных.
+        -->
+
+        <!--
+            Параметр props, который передается в функцию 
+            компонента, инкапсулирует свойства объекта. В частности,
+            свойство name и age. При рендеринге мы можем создать набор 
+            компонентов Hello, но передать в них разные данные для name и age.
+            И таким образом, получим набор однотипной разметки html, наполненной 
+            разными данными.
+        -->
+
+        <div class="app"></div>
+
+
+
+
+
+    
+
+       
+    <script type="text/babel">
+        class Hello extends React.Component {
+            render() {
+              return <div>
+                          <p>Имя: {this.props.name}</p>
+                          <p>Возраст: {this.props.age}</p>
+                      </div>;
+            }
+          }
+          ReactDOM.render(
+              <Hello name="Tom" age="33" />,
+              document.getElementById("app")
+          )
+    </script>
+        
+
+    
+</body>
+</html>
