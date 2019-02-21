@@ -1,0 +1,47 @@
+.slider{
+    margin-bottom: 15px;
+}
+
+.sliderBlock img{
+    height:100px;
+    overflow: hidden;
+}
+
+.sliderBlock{
+    
+    width: 30%;
+    
+    border: 2px solid red;
+    overflow: hidden;
+    
+}
+
+.slider5{
+    height: 160px;
+    width: 500px;
+    /* overflow: hidden; */
+    border:3px solid blueviolet;
+    background-color: brown;
+    position: relative;
+    left: -328px;
+
+}
+
+.oneSlider{
+    border: 1px solid black;
+    width: 100px;
+    display: inline-block;
+    
+    
+    
+}
+
+.oneSlider h3{
+    text-align: center;
+}
+
+/* .oneSlider::after{
+    content: '';
+    display: block;
+    clear: both;
+} */
