@@ -16,14 +16,24 @@
     
 }
 
+
+
+.sliderBlock5{
+
+    width: 13%;
+    
+    border: 2px solid red;
+    overflow: hidden;
+}
+
 .slider5{
     height: 160px;
-    width: 500px;
+    width: 600px;
     /* overflow: hidden; */
     border:3px solid blueviolet;
     background-color: brown;
     position: relative;
-    left: -328px;
+   
 
 }
 
@@ -40,8 +50,7 @@
     text-align: center;
 }
 
-/* .oneSlider::after{
-    content: '';
-    display: block;
-    clear: both;
-} */
+.oneSlider img{
+    width: 100%;
+}
+

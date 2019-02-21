@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import imageData from './../../slaider2.json';
 
-class Image5 extends Component{
+class Image6 extends Component{
 
     constructor(props){
         super(props);
@@ -16,6 +16,8 @@ class Image5 extends Component{
             }
 
         };
+
+
     };
 
     componentDidMount(){
@@ -28,7 +30,6 @@ class Image5 extends Component{
         },this.props.interval)
     }
 
-    
     sliderTimer(){
         let newPosition=parseInt(this.state.myStyle.left);
         
@@ -44,8 +45,6 @@ class Image5 extends Component{
     }
 
     render(){
-        // example:
-        // const template = Object.keys(data.books).map(item => <span key={data.books[item].id}>{data.books[item].author} - {data.books[item].name}</span>)
         
         const template=Object.keys(imageData).map(index=>
             <div key={index} className='oneSlider'>
@@ -53,6 +52,7 @@ class Image5 extends Component{
                 <img  src={imageData[index].src} alt={imageData[index].alt} />
 
             </div>)
+
 
         return(
             <div style={this.state.myStyle} className='slider5'>
@@ -64,4 +64,4 @@ class Image5 extends Component{
     };
 }
 
-export default Image5;
+export default Image6;
