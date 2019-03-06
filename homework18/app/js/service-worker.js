@@ -4,6 +4,7 @@ const timeout = 400;
 console.log('network-or-cache-v1')
 // В файле sw.js нам нужно лишь определить базовые события, на которые будет реагировать SW.
 
+// При установке воркера мы должны закешировать часть данных (статику).
 self.addEventListener('install', (event) => {
     console.log('Установлен');
 
