@@ -1,0 +1,47 @@
+
+@import 'reset';
+@import 'container';
+
+@import 'loader';
+
+img{
+  width: 80%;
+  float: left;
+}
+
+p{
+  text-align: left;
+  font-size: 1.1em;
+}
+
+h2{
+  font-size: 1.2em;
+}
+
+ul{
+  padding-left: 0;
+  margin-left:0;
+  word-wrap: break-word;
+}
+
+ul>li{
+  
+  text-align: left;
+  margin-top: 1em;
+  margin-left: 0.5em;
+  list-style-position: outside;
+  
+}
+
+
+
+@import'size280_479';
+@import'size480_629';
+@import'size630_767';
+@import'size768_849';
+@import'size850_991';
+@import'size991_1023';
+@import'size1024_1199';
+@import'size1199_1379';
+@import'size1379_1929';
+
