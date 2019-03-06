@@ -13,7 +13,7 @@ gulp.task('sass', function(){
 gulp.task('browser-sync', function() { // Создаем таск browser-sync
     browserSync({ // Выполняем browserSync
         server: { // Определяем параметры сервера
-            baseDir: '../NovoseletskiyVadim.github.io' // Директория для сервера - app
+            baseDir: '../homework18' // Директория для сервера - app
         },
         notify: false // Отключаем уведомления
     });

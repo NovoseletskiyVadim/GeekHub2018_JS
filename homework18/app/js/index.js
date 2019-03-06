@@ -5,7 +5,7 @@
 if ('serviceWorker' in navigator) {
 
   // Весь код регистрации  асинхронный.
-  navigator.serviceWorker.register('./service-worker.js')
+  navigator.serviceWorker.register('./sw.js')
 
       .then(() => navigator.serviceWorker.ready
       .then((worker) => {

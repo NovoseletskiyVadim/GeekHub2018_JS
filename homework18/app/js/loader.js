@@ -2,7 +2,7 @@
 var myLoader;
 
 function imitationLoader() {
-    myLoader = setTimeout(showPage, 10000);
+    myLoader = setTimeout(showPage, 2000);
 }
 
 function showPage() {
