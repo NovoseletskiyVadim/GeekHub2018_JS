@@ -1,7 +1,7 @@
 
 const CACHE_NAME = 'network-or-cache-v1';
 var urlsToCache = [
-    
+    '/',
     'app/css/main.css',
     'app/css/style.css',
     'app/js/loader.js',
@@ -23,14 +23,14 @@ var urlsToCache = [
 */
 self.addEventListener('install', function(event) {
     // установка
-    console.log('установка');
+    console.log(' зашел в обработчик install');
 
     /*Метод event.waitUntil() принимает промис и использует его, чтобы определить,
      успешно ли прошла установка.  */
     event.waitUntil(
       caches.open(CACHE_NAME)
         .then(function(cache) {
-          console.log('Opened cache');
+          console.log('Загрузил кеш');
           return cache.addAll(urlsToCache);
         })
     );
@@ -45,91 +45,65 @@ self.addEventListener('install', function(event) {
   3.если нужный ответ есть в кеше, возвращаем его, если нет, отправляем сетевой запрос.
 */ 
 
-// variant 1 
-
-
-// self.addEventListener('fetch', function(event) {
-//     console.log("i am in the fetch");
-//     event.respondWith(
-//       caches.match(event.request)
-//         .then(function(response) {
-//           //если нужный ресурс есть в кеше
-//             //FIXME:
-//             /* if не срабат.!!!  и  response2=underfined почему?*/ 
-//           if (response) {
-//             console.log(" response1=",response);
-//             return response;
-//           }
-//           console.log(" response2=",response);
-//           return fetch(event.request);
-//         }
-//       )
-//     );
-//   });
-
-
-
-// variant 2
-
-/* Пример ниже кеширует результаты запросов: */
-
-/* 
-  1.Добавляем обработчик then для метода fetch().
-  2.Получив ответ, убеждаемся, что он валидный, статус ответа 200, а тип ответа равен basic. 
-    Тип basic означает, что ответ получен с нашего домена, ресурсы с других доменов не будут 
-    кешироваться.
-  3. Если проверки пройдены, клонируем ответ, сохраняем копию в кеш, а оригинальный ответ возвращаем браузеру.
- */
-
-
+//  (кеш и обработка запросов)
 
 
 self.addEventListener('fetch', function(event) {
-    console.log("i am in the fetch");
+    console.log("зашел в обработчик fetch");
+    console.log("event.request=",event.request);
+    
     event.respondWith(
       caches.match(event.request)
-        .then(function(response) {
-          // ресурс есть в кеше
-        //   console.log(" response=",response);  
-
+      .then(function(response) {
+        //если нужный ресурс есть в кеше
+        //FIXME:
+        // caches.match не нашел в кеше совпадение почему ?
+        /* if не срабат.!!!  и  response=underfined */ 
+        /* информация из кеша не отдается !!!! */
+          console.log("response=",response);
           if (response) {
-            console.log("зашел если ресурс в кеше. response=",response);  
             return response;
           }
-  
-          /* Важно: клонируем запрос. Запрос - это поток, может быть обработан только раз.
-           Если мы хотим использовать объект request несколько раз, его нужно клонировать */
-          var fetchRequest = event.request.clone();
-  
-          console.log(" response=",response);  
-          return fetch(fetchRequest).then(
-              
-            function(response) {
-
-              /* ВАЖНО: Клонируем ответ. Объект response также является потоком. */
-              var responseToCache = response.clone();
-              
-              // проверяем, что получен корректный ответ
-              if(!response || response.status !== 200 || response.type !== 'basic') {
-                return response;
-              }
-  
-              
-  
-              caches.open(CACHE_NAME)
-                .then(function(cache) {
-                  cache.put(event.request, responseToCache);
-                });
-  
-              return response;
-            }
-          );
-        })
-      );
+          return fetch(event.request);
+        }
+      )
+    );
   });
 
+
+
+
+
+// Обновление Service Worker’а
+
+/* 
+  1.Когда пользователь заходит на сайт, браузер пытается повторно скачать файл Service Worker’а. 
+    Если новый файл отличается от текущего, Service Worker считается новым. 
+  2.Если Service Worker новый, срабатывает событие install.
+  3.На этом этапе старый Service Worker по прежнему контролирует страницу, 
+    тогда как новый переходит в состояние waiting.
+    Когда текущие открытые страницы сайта будут закрыты,
+    старый Service Worker будет убит, а новый получит контроль.
+  */
+
+
+/* Когда новый Service Worker получит контроль над страницей, сработает событие activate. */
+/* В обработчике activate целесообразно реализовывать удаление ненужных кешей.  */
 self.addEventListener('activate', (event) => {
-    console.log('Активирован');
+    console.log('зашел в обработчик activate');
+    var cacheWhitelist = ['pages-cache-v1', 'blog-posts-cache-v1'];
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
 });
 
 
