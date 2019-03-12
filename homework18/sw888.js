@@ -4,8 +4,7 @@ var urlsToCache = [
   './index.html',
   './app/css/style.css',
   './app/js/loader.js',
-  './app/js/fetch.js',
-  './app/js/index.js'
+  
   ];
   
 
@@ -62,8 +61,8 @@ self.addEventListener('fetch', function(event) {
       .then(function(response) {
         // ресурс есть в кеше
         if (response) {
-          console.log('if (response) response=',response)
-          console.log('проверка , ресурс есть в кеше' )
+          console.log('if (response) response=',response);
+          console.log('проверка , ресурс есть в кеше' );
           // оригинальный ответ возврашаем браузеру 
           return response;
         }
@@ -77,8 +76,8 @@ self.addEventListener('fetch', function(event) {
           function(response) {
             // проверяем, что получен корректный ответ
             // если ответ не коректный, (наверное возвращаем, то что в кеше) 
-            if(!response || response.status !== 200 || response.type !== 'basic') {
-              console.log('если ответ не коректный:   !response || response.status !== 200 || response.type !== "basic"')
+            if(!response || response.status !== 200 ) {
+              console.log('если ответ не коректный:   !response/ || response.status !== 200 || response.type !== "basic"')
               console.log('то : return response=',response);
               return response;
             }
@@ -124,22 +123,22 @@ self.addEventListener('fetch', function(event) {
 
 /* Когда новый Service Worker получит контроль над страницей, сработает событие activate. */
 /* В обработчике activate целесообразно реализовывать удаление ненужных кешей.  */
-self.addEventListener('activate', (event) => {
-    console.log('зашел в обработчик activate');
-    var cacheWhitelist = ['pages-cache-v1', 'blog-posts-cache-v1'];
+// self.addEventListener('activate', (event) => {
+//     console.log('зашел в обработчик activate');
+//     var cacheWhitelist = ['pages-cache-v1', 'blog-posts-cache-v1'];
 
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
-});
+//   event.waitUntil(
+//     caches.keys().then(function(cacheNames) {
+//       return Promise.all(
+//         cacheNames.map(function(cacheName) {
+//           if (cacheWhitelist.indexOf(cacheName) === -1) {
+//             return caches.delete(cacheName);
+//           }
+//         })
+//       );
+//     })
+//   );
+// });
 
 
  
