@@ -1,11 +1,11 @@
 
 const CACHE_NAME = 'network-or-cache-v1';
 var urlsToCache = [
-    '/',
-    'app/css/main.css',
-    'app/css/style.css',
-    'app/js/loader.js',
-    'index.html'
+    
+    '/app/css/main.css',
+    '/app/css/style.css',
+    '/app/js/loader.js',
+    '/index.html'
   ];
   
 

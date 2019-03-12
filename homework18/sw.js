@@ -1,10 +1,11 @@
-
-const CACHE_NAME = 'network-or-cache-v1';
+var CACHE_NAME = 'network-or-cache-v1';
 var urlsToCache = [
-    'app/css/main.css',
-    'app/css/style.css',
-    'app/js/loader.js',
-    'index.html'
+  './',
+  './index.html',
+  './app/css/style.css',
+  './app/js/loader.js',
+  './app/js/fetch.js',
+  './app/js/index.js'
   ];
   
 
@@ -69,7 +70,8 @@ self.addEventListener('fetch', function(event) {
 
         /* Важно: клонируем запрос. Запрос - это поток, может быть обработан только раз. 
         Если мы хотим использовать объект request несколько раз, его нужно клонировать */
-        var fetchRequest = event.request.clone();
+        // FIXME:var fetchRequest = event.request.clone();
+        var fetchRequest = event.request;
 
         return fetch(fetchRequest).then(
           function(response) {

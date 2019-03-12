@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "My project, where I using a fetch.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
+  },
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "gulp": "^4.0.0",
